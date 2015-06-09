@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+=begin
+  test "create valid user" do
+
+    assert true
+  end
+=end
+
 end
