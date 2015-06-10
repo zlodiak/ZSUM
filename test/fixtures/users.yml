@@ -1,21 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: ad@ad.ad
-  name: ad
-  password_hash: MyString
+  name: MyString
+  email: MyString
+  password_digest: MyString
   session_hash: MyString
-  gender: 1
   phone: MyString
   skype: MyString
-  info: MyText
+  info: MyString
+  gender: 1
 
 two:
-  email: ad2@ad.ad
-  name: ad2
-  password_hash: MyString
+  name: MyString
+  email: MyString
+  password_digest: MyString
   session_hash: MyString
-  gender: 1
   phone: MyString
   skype: MyString
-  info: MyText
+  info: MyString
+  gender: 1

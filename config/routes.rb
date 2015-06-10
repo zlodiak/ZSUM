@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+  resources :users
+
   get 'pages/page1'
-
   get 'pages/page2'
-
   get 'pages/page3'
-
   get 'pages/page4'
 
   # The priority is based upon order of creation: first created -> highest priority.
