@@ -16,7 +16,7 @@
   <body>
     <div class="blog-masthead">
       <div class="container">
-        <%= render 'layouts/nav_top' %>
+        <%= render 'layouts/auth_area' %>
       </div>
     </div>
 
@@ -26,15 +26,12 @@
         <p class="lead blog-description">Сервис замечательнейших блогов.</p>
       </div>
 
-      <div class="row">
-        <div class="col-sm-8 blog-main">
-          <%= yield %>
-        </div>
+      <%= render 'layouts/flash_area' %>
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+      <div class="row">
+        <div class="col-sm-3 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <h4>About</h4>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <%= render 'layouts/nav_main' %>
           </div>
 
           <div class="sidebar-module">
@@ -64,6 +61,10 @@
             </ol>
           </div>
         </div>
+
+        <div class="col-sm-9 blog-main">
+          <%= yield %>
+        </div>        
       </div>
     </div>
 

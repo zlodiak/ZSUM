@@ -4,10 +4,3 @@
   <%= link_to 'Page3',  pages_page3_path, class: 'blog-nav-item' %>
   <%= link_to 'Page4',  pages_page4_path, class: 'blog-nav-item' %>
 </nav>
-
-<% if signed_in? %>
-  logined <%= link_to "Sign out", signout_path, method: "delete"  %>
-<% else %>
-  not logined <%= link_to "Sign in",  signin_path %> | <%= link_to 'Зарегистрироваться', signup_path %>
-<% end %>
-

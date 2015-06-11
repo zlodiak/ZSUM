@@ -19,11 +19,11 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  name: 'Name'
+ru:
+  hello: 'Привет, мир'
+  name: 'Имя'
   email: 'Email'
-  password: 'Password'
-  sign_up: 'Registration'
-  sign_in: 'Login'
-  logout: 'Logout'
+  password: 'Пароль'
+  sign_up: 'Зарегистрироваться'
+  sign_in: 'Войти'
+  logout: 'Выйти'  
