@@ -4,3 +4,9 @@
   <%= link_to 'Page3',  pages_page3_path, class: 'blog-nav-item' %>
   <%= link_to 'Page4',  pages_page4_path, class: 'blog-nav-item' %>
 </nav>
+
+<% if signed_in? %>
+  logined
+<% else %>
+  not logined
+<% end %>
