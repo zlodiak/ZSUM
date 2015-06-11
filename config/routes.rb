@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'pages/page3'
   get 'pages/page4'
 
+  match '/users', to: 'users#index', via:  'get'
   match '/signup', to: 'users#new', via:  'get'
   match '/signin', to: 'sessions#new', via:  'get'
   match '/signout', to: 'sessions#destroy', via:  'delete'  
