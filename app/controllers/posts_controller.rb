@@ -5,11 +5,16 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @user = User.find(params[:id])
+    p '---'
+    p @user.id
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @user = User.find(params[:id])
+    @posts = @user.posts    
   end
 
   # GET /posts/new
