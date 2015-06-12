@@ -1,14 +1,14 @@
 class PagesController < ApplicationController
-  def page1
+  def home
   end
 
   def all_diary
     @all_diary = User.all
   end
 
-  def page3
+  def popular_diary
   end
 
-  def page4
+  def lasts_diary
   end
 end
