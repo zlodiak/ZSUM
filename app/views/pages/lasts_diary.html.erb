@@ -1,2 +1,31 @@
-<h1>Pages#page4</h1>
-<p>Find me in app/views/pages/page4.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h2>lasts_diary</h2>
+
+<div  class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <div class="col-sm-3">diary_name</div>
+          <div class="col-sm-3">owner_name</div>
+          <div class="col-sm-3">created_date</div>
+          <div class="col-sm-3">updated_date</div>
+        </th>    
+      </tr>    
+    </thead>
+
+    <% @lasts_diary.each do |diary| %>
+      <tr>
+        <td>
+          <%= link_to user_posts_url(diary.id) do %>
+            <div class="col-sm-3"><%= diary.diary_name %></div>
+            <div class="col-sm-3"><%= diary.name %></div>
+            <div class="col-sm-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
+            <div class="col-sm-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
+          <% end %>  
+        </td>
+      </tr>
+    <% end %>      
+  </table>
+</div>
