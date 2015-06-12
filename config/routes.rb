@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :posts
+  #resources :posts
   resources :sessions,  only: [:new,  :create,  :destroy]
 
   resources :users
+
+  resources :users do
+    resources :posts
+  end  
 
   get 'pages/home'
   get 'pages/all_diary'

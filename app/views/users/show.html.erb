@@ -33,15 +33,3 @@
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
-<h2>diary (<%= @user.posts.count %>)</h2>
-
-<% @user.posts.each do |post| %>
-  <article class="article">
-    <h3><%= post.title %></h3>
-    <div class="meta">
-      <span class="created">create_date <%= l post.created_at, format: "%e %b %Y %H:%I" %></span>
-      <span class="updated">update_date <%= l post.updated_at, format: "%e %b %Y" %></span>
-    </div>
-    <div class="body"><%= post.body %></div>
-  </article>
-<% end %>
