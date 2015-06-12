@@ -1,2 +1,27 @@
-<h1>Pages#page2</h1>
-<p>Find me in app/views/pages/page2.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h2>all_diary</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>diary_name</th>
+      <th>owner_name</th>
+      <th>created_date</th>
+      <th>updated_date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @all_diary.each do |diary| %>
+      <tr>
+        <td><%= diary.diary_name %></td>
+        <td><%= diary.name %></td>
+        <td><%= diary.created_at %></td>
+        <td><%= diary.updated_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def all_diary
+    @all_diary = User.all
   end
 
   def page3
