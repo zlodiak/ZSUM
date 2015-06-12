@@ -16,17 +16,23 @@
   <body>
     <div class="blog-masthead">
       <div class="container">
-        <%= render 'layouts/auth_area' %>
+        <div class="row">
+          <%= render 'layouts/auth_area' %>
+        </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="blog-header">
-        <h1 class="blog-title">Записки сумасшедшего</h1>
-        <p class="lead blog-description">Сервис замечательнейших блогов.</p>
+      <div class="row">
+        <div class="blog-header">
+          <h1 class="blog-title">Записки сумасшедшего</h1>
+          <p class="lead blog-description">Сервис замечательнейших блогов.</p>
+        </div>
       </div>
 
-      <%= render 'layouts/flash_area' %>
+      <div class="row">
+        <%= render 'layouts/flash_area' %>
+      </div>
 
       <div class="row">
         <div class="col-sm-3 blog-sidebar">
@@ -69,10 +75,14 @@
     </div>
 
     <footer class="blog-footer">
+    <div class="container">
+      <div class="row">    
       <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
       <p>
         <a href="#">Back to top</a>
       </p>
+      </div>
+      </div>
     </footer>
   </body>
 </html>
