@@ -21,8 +21,9 @@
           <%= link_to user_path(diary.id) do %>
             <div class="col-sm-3"><%= diary.diary_name %></div>
             <div class="col-sm-3"><%= diary.name %></div>
-            <div class="col-sm-3"><%= diary.created_at.to_time.strftime('%e %b %Y') %></div>
-            <div class="col-sm-3"><%= diary.updated_at.to_time.strftime('%e %b %Y') %></div>
+            <div class="col-sm-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
+            <div class="col-sm-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
+            <div class="col-sm-3"><%= Russian::strftime(diary.created_at.to_time) %></div>
           <% end %>  
         </td>
       </tr>
