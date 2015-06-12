@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  #resources :posts
   resources :sessions,  only: [:new,  :create,  :destroy]
 
   resources :users
@@ -13,7 +12,7 @@ Rails.application.routes.draw do
   get 'pages/popular_diary'
   get 'pages/lasts_diary'
 
-  match '/users', to: 'users#index', via:  'get'
+  # match '/users', to: 'users#index', via:  'get'
   match '/signup', to: 'users#new', via:  'get'
   match '/signin', to: 'sessions#new', via:  'get'
   match '/signout', to: 'sessions#destroy', via:  'delete'  

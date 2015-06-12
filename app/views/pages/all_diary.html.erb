@@ -18,7 +18,7 @@
     <% @all_diary.each do |diary| %>
       <tr>
         <td>
-          <%= link_to user_posts_url(diary) do %>
+          <%= link_to user_posts_url(diary.id) do %>
             <div class="col-sm-3"><%= diary.diary_name %></div>
             <div class="col-sm-3"><%= diary.name %></div>
             <div class="col-sm-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
