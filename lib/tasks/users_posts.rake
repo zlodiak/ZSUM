@@ -15,12 +15,17 @@ namespace :db do
   end
 
   desc    "create posts"
-  task    populate_posts:   :environment    do
+  task    populate_posts:   :environment    do    
     users = User.all
-    10.times  do
-      title = Faker::Lorem.sentence(1)
-      body = Faker::Lorem.paragraph(7)
-      users.each  { |user|  user.posts.create!(title:  title, body: body)  }
+
+    users.each do |user|
+      10.times  do
+        title = Faker::Lorem.sentence(1)
+        body = Faker::Lorem.paragraph(7)
+        user.posts.create!(title:  title, body: body)  
+      end
     end
   end
 end
+
+
