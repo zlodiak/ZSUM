@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h2>users</h2>
 
 <table>
   <thead>
@@ -15,7 +15,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td>
+          <%= link_to user_path(user.id) do %>
+            <%= user.name %>
+          <% end %>
+        </td>
         <td><%= user.email %></td>
         <td><%= user.gender %></td>
         
