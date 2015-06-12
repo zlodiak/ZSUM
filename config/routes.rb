@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'pages/page1'
-  get 'pages/page2'
+  get 'pages/all_diary'
   get 'pages/page3'
   get 'pages/page4'
 
