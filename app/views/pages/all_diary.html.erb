@@ -2,26 +2,30 @@
 
 <h2>all_diary</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>diary_name</th>
-      <th>owner_name</th>
-      <th>created_date</th>
-      <th>updated_date</th>
-    </tr>
-  </thead>
+<div  class="row">
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <div class="col-sm-3">diary_name</div>
+          <div class="col-sm-3">owner_name</div>
+          <div class="col-sm-3">created_date</div>
+          <div class="col-sm-3">updated_date</div>
+        </th>    
+      </tr>    
+    </thead>
 
-  <tbody>
     <% @all_diary.each do |diary| %>
       <tr>
-        <td><%= diary.diary_name %></td>
-        <td><%= diary.name %></td>
-        <td><%= diary.created_at %></td>
-        <td><%= diary.updated_at %></td>
+        <td>
+          <%= link_to user_path(diary.id) do %>
+            <div class="col-sm-3"><%= diary.diary_name %></div>
+            <div class="col-sm-3"><%= diary.name %></div>
+            <div class="col-sm-3"><%= diary.created_at.to_time.strftime('%e %b %Y') %></div>
+            <div class="col-sm-3"><%= diary.updated_at.to_time.strftime('%e %b %Y') %></div>
+          <% end %>  
+        </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+    <% end %>      
+  </table>
+</div>
