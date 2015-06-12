@@ -6,9 +6,11 @@ namespace :db do
       email   =   "ad#{n+1}@ad.ad"
       diary_name   =   "Дневник №#{n+1}"
       password        =   "qwerty"
+      views_diary = Faker::Number.number(3)
       User.create!(   name:  name,
                       email:  email,
                       diary_name:  diary_name,
+                      views_diary:  views_diary,
                       password:   password,
                       password_confirmation:  password)
     end
