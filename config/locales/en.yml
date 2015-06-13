@@ -26,4 +26,4 @@ en:
   password: 'Password'
   sign_up: 'Registration'
   sign_in: 'Login'
-  logout: 'Logout'
+  sign_out: 'Logout'
