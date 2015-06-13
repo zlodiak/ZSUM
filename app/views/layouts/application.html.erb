@@ -25,10 +25,7 @@
 
     <div class="container">
       <div class="row">
-        <div class="blog-header">
-          <h1 class="blog-title">Записки сумасшедшего</h1>
-          <p class="lead blog-description">Сервис замечательнейших блогов от Сергея Калинина.</p>
-        </div>
+        <%= render 'layouts/header_area' %>
       </div>
 
       <div class="row">
@@ -76,13 +73,10 @@
     </div>
 
     <footer class="blog-footer">
-    <div class="container">
-      <div class="row">    
-      <p>Разработано на <a href="http://rubyonrails.org/">Ruby on rails</a> и <a href="http://getbootstrap.com/">Twitter Bootstrap</a>.</p>
-      <p>
-        <p>© Сергей Калинин 2015</p>
-      </p>
-      </div>
+      <div class="container">
+        <div class="row">    
+          <%= render 'layouts/footer_area' %>
+        </div>
       </div>
     </footer>
   </body>
