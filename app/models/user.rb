@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_many  :posts,  dependent:  :destroy
+  has_many    :posts,  dependent:  :destroy
+  belongs_to  :gender
 
   def User.new_remember_token
       SecureRandom.urlsafe_base64
