@@ -1,20 +1,18 @@
 <h1><%= t("sign_in") %></h1>
 
-<div  class="row">
-  <%= form_for(:session,  url:  sessions_path)  do  |f| %>
-    <div>
-      <%= f.label t(:email)  %>
-      <%= f.text_field  :email  %>
-    </div>
+<%= form_for(:session,  url:  sessions_path)  do  |f| %>
+  <div>
+    <%= f.label t(:email)  %>
+    <%= f.text_field  :email  %>
+  </div>
 
-    <div>
-      <%= f.label t(:password) %>
-      <%= f.password_field  :password %>
-    </div>
+  <div>
+    <%= f.label t(:password) %>
+    <%= f.password_field  :password %>
+  </div>
 
-    <div>
-      <%= f.submit  t("sign_in"),  class:  "btn  btn-primary"  %>
-      <%= link_to t('sign_up'),  signup_path %>
-    </div>
-  <%  end %>
-</div>
+  <div>
+    <%= f.submit  t("sign_in"),  class:  "btn  btn-primary"  %>
+    <%= link_to t('sign_up'),  signup_path %>
+  </div>
+<%  end %>
