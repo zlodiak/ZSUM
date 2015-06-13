@@ -1,13 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <article class="article blog_post">
+      <div class="col-sm-12 meta">
+        <h2 class="blog-post-title h2"><%= @post.title %></h2>
+      </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+      <div class="col-sm-12 meta">
+        <span class="create_date"><%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
+        <span class="author">Автор: <%= link_to @post.user_id, user_path(@post.user_id) %></span>
+      </div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+      <div class="col-sm-12 body">
+        <%= @post.body %>
+      </div>
+    </article>      
+</div>
+
+
+
 
 
