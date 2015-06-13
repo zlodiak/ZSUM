@@ -1,6 +1,7 @@
-<div class="auth_area">
+<div class="auth_area col-xs-6">
   <% if signed_in? %>
-    <%= link_to t(:sign_out), signout_path, method: "delete"  %>
+    <span class="entered_name">Вы вошли как <a href="#"><%= current_user.name %></a></span>
+    (<%= link_to t(:sign_out), signout_path, method: "delete"  %>)
   <% else %>
     <%= link_to t(:sign_in),  signin_path %> | <%= link_to t(:sign_up), signup_path %>
   <% end %>
