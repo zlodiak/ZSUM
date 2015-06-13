@@ -38,7 +38,7 @@ namespace :db do
     users.each do |user|
       10.times  do
         title = Faker::Lorem.sentence(1)
-        body = Faker::Lorem.paragraph(17)
+        body = Faker::Lorem.paragraph(47)
         user.posts.create!(title:  title, body: body)  
       end
     end

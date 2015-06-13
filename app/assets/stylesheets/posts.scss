@@ -1,3 +1,76 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* blog teaser */
+.blog_teaser{
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+  .blog_teaser .h3{
+
+  }
+
+  .blog_teaser .meta{
+
+  }
+
+    .blog_teaser .meta .create_date{
+      color: #999
+    }
+
+  .blog_teaser .body{
+    
+  }    
+
+    .blog_teaser .body a:visited,
+    .blog_teaser .body a{
+      color: #555;
+      display: block;
+    }
+
+    .blog_teaser .body a:hover{
+      color: #23527c;
+    }
+
+
+/* blog post */
+.blog_post{
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+  .blog_post .h2{
+    margin-bottom: 5px;
+  }
+
+  .blog_post .meta{
+
+  }
+
+    .blog_post .meta .author{
+
+    }
+
+      .blog_post .meta .author a:hover{
+        color: #23527c;
+      }
+
+      .blog_post .meta .author a{
+        color: #337ab7;
+      }
+
+    .blog_post .meta .create_date{
+      color: #999;
+      margin-right: 10px;
+    }
+
+  .blog_post .body{
+    
+  }    
+
+    .blog_post .body{
+      color: #555;
+      display: block;
+    }
