@@ -173,9 +173,11 @@ a{
   margin-bottom: 60px;
 }
 .blog-post-title {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   font-size: 40px;
 }
+
+form label,
 .blog-post-meta {
   margin-bottom: 20px;
   color: #999;
@@ -252,3 +254,51 @@ a{
   margin-left: 10px;
 }
 
+
+/* form */
+form{
+}
+
+  form label{
+    min-width: 150px;
+
+    vertical-align: baseline;
+  }
+
+  form input[type='password'],
+  form input[type='email'],
+  form input[type='text']{
+    padding: 5px 5px;
+    overflow: center;
+    width: 300px;
+
+    vertical-align: baseline;
+  }
+
+  form input[type='submit']:hover{
+    color: #23527c;
+    background: #f5f5f5;
+  }
+
+  form input[type='submit']{
+    min-width: 140px;
+    text-align: center;
+    border-radius: 30px;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;  
+    color: #337ab7;
+    text-decoration: none;  
+    margin-top: 15px;
+  }
+
+  form .field_with_errors{
+    display: inline-block;
+
+    vertical-align: baseline;
+  }
+
+    form .field_with_errors input{
+      border: 1px solid red;
+    }
