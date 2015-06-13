@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome  to  the Sample  App!"
       redirect_to  @user
     else
+      flash.now[:error] = 'Invalid data' 
       render  'new'
     end
   end 
