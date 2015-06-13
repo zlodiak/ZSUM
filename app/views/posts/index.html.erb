@@ -1,33 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h2 class="blog-post-title">listing_posts</h2>
 
-<h2>Listing Posts</h2>
+<div class="row">
+  <% @posts.each do |post| %>
+      <article class="article blog_teaser">
+        <h3 class="col-sm-12 h3"><%= post.title %></h3>
 
-<div  class="row">
-  <table>
-    <thead>
-      <tr>
-        <th>
-          <div class="col-sm-3">post_title</div>
-          <div class="col-sm-3">post_short</div>
-          <div class="col-sm-3">created_date</div>
-          <div class="col-sm-3">updated_date</div>
-        </th>    
-      </tr>    
-    </thead>
+        <div class="col-sm-12 meta">
+          <span class="create_date"><%= l post.created_at, format: "%e %b %Y" %></span>
+        </div>
 
-    <% @posts.each do |post| %>
-      <tr>
-        <td>
-          <%= link_to user_post_path(@user.id, post.id) do %>
-            <div class="col-sm-3"><%= post.title %> | <%= post.id %></div>
-            <div class="col-sm-3"><%= truncate(post.body, length: 50) %></div>
-            <div class="col-sm-3"><%= l post.created_at, format: "%e %b %Y" %></div>
-            <div class="col-sm-3"><%= l post.updated_at, format: "%e %b %Y" %></div>
-          <% end %>  
-        </td>
-      </tr>
-    <% end %>      
-  </table>
+        <div class="col-sm-12 body">
+          <%= link_to truncate(post.body, length: 200), user_post_path(@user.id, post.id) %>
+        </div>
+      </article> 
+  <% end %>      
 </div>
 
 
