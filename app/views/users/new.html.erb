@@ -1,40 +1,38 @@
 <h2>Регистрация</h2>
 
 <div  class="row">
-  <div  class="">
-    <%= form_for(@user) do  |f| %>
-      <div>
-        <%= render  'shared/error_messages' %>
-      </div>
+  <%= form_for(@user) do  |f| %>
+    <div>
+      <%= render  'shared/error_messages' %>
+    </div>
 
-      <div>
-        <%= f.label :name %>
-        <%= f.text_field  :name %>
-      </div>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field  :name %>
+    </div>
 
-      <div>
-        <%= f.label :email  %>
-        <%= f.text_field  :email  %>
-      </div>
+    <div>
+      <%= f.label :email  %>
+      <%= f.text_field  :email  %>
+    </div>
 
-      <div>
-        <%= f.label :diary_name  %>
-        <%= f.text_field  :diary_name  %>   
-      </div>   
+    <div>
+      <%= f.label :diary_name  %>
+      <%= f.text_field  :diary_name  %>   
+    </div>   
 
-      <div>
-        <%= f.label :password %>
-        <%= f.password_field  :password %>
-      </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field  :password %>
+    </div>
 
-      <div>
-        <%= f.label :password_confirmation, "Confirmation"  %>
-        <%= f.password_field  :password_confirmation  %>
-      </div>
+    <div>
+      <%= f.label :password_confirmation, "Confirmation"  %>
+      <%= f.password_field  :password_confirmation  %>
+    </div>
 
-      <div>
-        <%= f.submit  "Зарегистрироваться", class:  "btn  btn-primary"  %>
-      </div>
-    <%  end %>
-  </div>
+    <div>
+      <%= f.submit  "Зарегистрироваться", class:  "btn  btn-primary"  %>
+    </div>
+  <%  end %>
 </div>

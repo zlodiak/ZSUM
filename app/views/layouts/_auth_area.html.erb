@@ -1,8 +1,8 @@
 <div class="auth_area">
   <% if signed_in? %>
-    logined <%= link_to "Sign out", signout_path, method: "delete"  %>
+    <%= link_to t(:sign_out), signout_path, method: "delete"  %>
   <% else %>
-    not logined <%= link_to "Sign in",  signin_path %> | <%= link_to 'Зарегистрироваться', signup_path %>
+    <%= link_to t(:sign_in),  signin_path %> | <%= link_to t(:sign_up), signup_path %>
   <% end %>
 </div>
 

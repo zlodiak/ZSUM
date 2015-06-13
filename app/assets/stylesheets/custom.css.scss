@@ -58,6 +58,8 @@ h6, .h6 {
 .blog-nav-item:focus {
   color: #fff;
   text-decoration: none;
+
+  background: #000;
 }
 
 /* Active state gets a caret at the bottom */
@@ -123,7 +125,10 @@ h6, .h6 {
 .sidebar-module-inset ol:last-child {
   margin-bottom: 0;
 }
-
+.sidebar-module a.avtive,
+.sidebar-module a:hover{
+  background: #000;
+}
 
 /* Pagination */
 .pager {

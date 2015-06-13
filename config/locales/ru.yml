@@ -26,4 +26,4 @@ ru:
   password: 'Пароль'
   sign_up: 'Зарегистрироваться'
   sign_in: 'Войти'
-  logout: 'Выйти'  
+  sign_out: 'Выйти'  

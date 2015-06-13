@@ -3,14 +3,14 @@ class PagesController < ApplicationController
   end
 
   def all_diary
-    @all_diary = User.all
+    @diaries = User.all
   end
 
   def popular_diary
-    @popular_diary = User.all.order(views_diary: :DESC)
+    @diaries = User.all.order(views_diary: :DESC)
   end
 
   def lasts_diary
-    @lasts_diary = User.all.order(created_at: :DESC)
+    @diaries = User.all.order(created_at: :DESC)
   end
 end
