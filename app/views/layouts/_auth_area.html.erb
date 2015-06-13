@@ -3,7 +3,7 @@
     <span class="entered_name">Вы вошли как <%= link_to current_user.name, user_path(current_user.id) %></span>
     (<%= link_to t(:sign_out), signout_path, method: "delete"  %>)
   <% else %>
-    <%= link_to t(:sign_in),  signin_path %> | <%= link_to t(:sign_up), signup_path %>
+    <%= link_to t(:sign_in),  signin_path %> <%= link_to t(:sign_up), signup_path %>
   <% end %>
 </div>
 
