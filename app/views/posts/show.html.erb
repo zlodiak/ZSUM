@@ -1,15 +1,14 @@
 <div class="row">
     <article class="article blog_post">
-      <div class="col-sm-12 meta">
-        <h2 class="blog-post-title h2"><%= @post.title %></h2>
-      </div>
+      <h2 class="blog-post-title col-xs-10 h2"><%= @post.title %></h2>
+      <div class="col-xs-2 h3">rr</div>
 
-      <div class="col-sm-12 meta">
+      <div class="col-xs-12 meta">
         <span class="create_date"><%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
         <span class="author">Автор: <%= link_to @post.user_id, user_path(@post.user_id) %></span>
       </div>
 
-      <div class="col-sm-12 body">
+      <div class="col-xs-12 body">
         <%= @post.body %>
       </div>
     </article>      

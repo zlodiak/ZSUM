@@ -192,6 +192,10 @@ a{
   font-size: 40px;
 }
 
+.blog-post-title-lite{
+  margin-bottom: 10px;
+}
+
 form label,
 .blog-post-meta {
   margin-bottom: 20px;
@@ -269,7 +273,7 @@ form label,
   margin-left: 10px;
 }
 
-.auth_area a{
+.auth_area a:first-child{
   margin-right: 10px;
 }
 

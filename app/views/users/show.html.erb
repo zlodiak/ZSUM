@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <h2 class="blog-post-title blog-post-title-lite col-xs-10"><%= @user.name %></h2>
+  <div class="col-xs-2">
+    <%= link_to '', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>  
+    <%= link_to '', edit_user_path(@user), class: 'glyphicon glyphicon-edit pull-right' %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="row">
+  <div class="label_table col-xs-2">Gender:</div>
+  <div class="info_table col-xs-10">v<%= @user.gender %></div>
+</div>    
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="row">
+  <div class="label_table col-xs-2">Email:</div>
+  <div class="info_table col-xs-10"><%= @user.email %></div>
+</div>    
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+<div class="row">
+  <div class="label_table col-xs-2">Phone:</div>
+  <div class="info_table col-xs-10"><%= @user.phone %></div>
+</div>    
 
-<p>
-  <strong>Skype:</strong>
-  <%= @user.skype %>
-</p>
+<div class="row">
+  <div class="label_table col-xs-2">Skype:</div>
+  <div class="info_table col-xs-10"><%= @user.skype %></div>
+</div>    
 
-<p>
-  <strong>Info:</strong>
-  <%= @user.info %>
-</p>
+<div class="row">
+  <div class="label_table col-xs-2">Info:</div>
+  <div class="info_table col-xs-10"><%= @user.info %></div>
+</div>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+
 

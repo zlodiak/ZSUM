@@ -3,9 +3,9 @@
     <thead>
       <tr>
         <th>
-          <div class="col-sm-6">diary_name</div>
-          <div class="col-sm-3">created_date</div>
-          <div class="col-sm-3">updated_date</div>
+          <div class="col-xs-6">diary_name</div>
+          <div class="col-xs-3">created_date</div>
+          <div class="col-xs-3">updated_date</div>
         </th>    
       </tr>    
     </thead>
@@ -14,9 +14,9 @@
       <tr>
         <td>
           <%= link_to user_posts_url(diary.id) do %>
-            <div class="col-sm-6"><%= diary.diary_name %></div>
-            <div class="col-sm-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
-            <div class="col-sm-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
+            <div class="col-xs-6"><%= diary.diary_name %></div>
+            <div class="col-xs-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
+            <div class="col-xs-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
           <% end %>  
         </td>
       </tr>

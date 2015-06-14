@@ -2,17 +2,18 @@
 
 <div class="row">
   <% @posts.each do |post| %>
-      <article class="article blog_teaser">
-        <h3 class="col-sm-12 h3"><%= post.title %></h3>
+    <article class="article blog_teaser">
+      <h3 class="col-xs-10 h3"><%= post.title %></h3>
+      <div class="col-xs-2 h3">rr</div>
 
-        <div class="col-sm-12 meta">
-          <span class="create_date"><%= l post.created_at, format: "%e %b %Y" %></span>
-        </div>
+      <div class="col-xs-12 meta">
+        <span class="create_date"><%= l post.created_at, format: "%e %b %Y" %></span>
+      </div>
 
-        <div class="col-sm-12 body">
-          <%= link_to truncate(post.body, length: 200), user_post_path(@user.id, post.id) %>
-        </div>
-      </article> 
+      <div class="col-xs-12 body">
+        <%= link_to truncate(post.body, length: 200), user_post_path(@user.id, post.id) %>
+      </div>
+    </article> 
   <% end %>      
 </div>
 
