@@ -3,7 +3,7 @@ namespace :db do
   task    populate_genders:   :environment    do
     Gender.create!(gender: '-')
     Gender.create!(gender: 'male')
-    Gender.create!(gender: 'femalee')
+    Gender.create!(gender: 'female')
   end
 
   desc    "create users"
