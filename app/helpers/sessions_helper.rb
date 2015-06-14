@@ -15,6 +15,10 @@ module SessionsHelper
     @current_user ||= User.find_by(remember_token:  remember_token)
   end 
 
+  def current_user?(user)
+    user == current_user
+  end 
+
   def signed_in?
     !current_user.nil?
   end  
@@ -33,6 +37,18 @@ module SessionsHelper
   end   
 
   def admin_user
-    redirect_to(root_url) unless current_user.admin?
-  end   
+    unless current_user.admin?
+      flash[:error] = "no permitted operation"
+      redirect_to(root_url) 
+    end
+  end  
+  
+  def correct_user
+    @user = User.find(params[:id])
+
+    unless  current_user?(@user) || current_user.admin?
+      flash[:error] = "no permitted operation"
+      redirect_to(root_url) 
+    end     
+  end     
 end
