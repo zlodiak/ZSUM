@@ -232,6 +232,21 @@ form label,
 
 
 
+.glyphicon{
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**/
 .blog-masthead{
@@ -353,6 +368,18 @@ form{
 
 .alert-error .alert-link {
   color: #843534;
+}
+
+.alert-notice {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+.alert-notice hr {
+  border-top-color: #a6e1ec;
+}
+.alert-notice .alert-link {
+  color: #245269;
 }
 
 

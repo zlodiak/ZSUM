@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:destroy]
+  before_action :admin_user, only: :destroy
+
   def index
     @users = User.all
   end
@@ -46,8 +49,8 @@ class UsersController < ApplicationController
   end 
 
   private
+
     def user_params
-      # params.require(:user).permit(:name, :email, :password, :password_confirmation, :skype, :phone, :info, :gender, )
       params.require(:user).permit(:name, :email, :diary_name, :password, :password_confirmation)
-    end
+    end    
 end

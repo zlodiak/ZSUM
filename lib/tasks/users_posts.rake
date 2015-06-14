@@ -24,7 +24,7 @@ namespace :db do
       name        =   Faker::Name.name
       email   =   "ad#{n+1}@ad.ad"
       diary_name   =   "Дневник №#{n+1}"
-      gender_id = rand(0..2)
+      gender_id = rand(1..3)
       phone = Faker::PhoneNumber.cell_phone
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
