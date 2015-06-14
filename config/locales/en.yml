@@ -27,3 +27,5 @@ en:
   sign_up: 'Registration'
   sign_in: 'Login'
   sign_out: 'Logout'
+  male: 'Male'  
+  female: 'Female'  
