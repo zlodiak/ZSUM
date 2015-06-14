@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613181648) do
+ActiveRecord::Schema.define(version: 20150614081313) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "gender_name"
@@ -36,10 +36,11 @@ ActiveRecord::Schema.define(version: 20150613181648) do
     t.string   "skype"
     t.string   "info"
     t.integer  "gender_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "diary_name"
     t.integer  "views_diary",     default: 0
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

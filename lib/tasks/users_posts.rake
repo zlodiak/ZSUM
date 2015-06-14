@@ -1,13 +1,25 @@
 namespace :db do
   desc    "create genders"
   task    populate_genders:   :environment    do
-    Gender.create!(gender: '-')
-    Gender.create!(gender: 'male')
-    Gender.create!(gender: 'female')
+    Gender.create!(gender_name: '-')
+    Gender.create!(gender_name: 'male')
+    Gender.create!(gender_name: 'female')
   end
 
   desc    "create users"
   task    populate_users:   :environment    do
+      User.create!(   name:  'admin',
+                      email:  'ad@ad.ad',
+                      diary_name:  'Мой админский бложик',
+                      views_diary:  444,
+                      gender_id: 2,
+                      phone: '234-23423-4',
+                      skype: 'ererer',
+                      info: 'Моя бабушка курит трубку',
+                      admin: true,
+                      password:   'qwerty',
+                      password_confirmation:  'qwerty')
+
     10.times    do  |n|
       name        =   Faker::Name.name
       email   =   "ad#{n+1}@ad.ad"
@@ -26,6 +38,7 @@ namespace :db do
                       phone: phone,
                       skype: skype,
                       info: info,
+                      admin: false,
                       password:   password,
                       password_confirmation:  password)
     end
