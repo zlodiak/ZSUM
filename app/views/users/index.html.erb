@@ -7,7 +7,7 @@
         <th>
           <div class="col-xs-6">name</div>
           <div class="col-xs-2">gender</div>
-          <div class="col-xs-4">actions</div>
+          <div class="col-xs-4"></div>
         </th>    
       </tr>    
     </thead>
@@ -22,9 +22,8 @@
           </div>
           <div class="col-xs-2"><%#= user.gender.gender_name %></div>
           <div class="col-xs-4">
-            <%= link_to 'Show', user %>
-            <%= link_to 'Edit', edit_user_path(user) %>
-            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
+            <%= link_to '', edit_user_path(user), class: 'glyphicon glyphicon-edit pull-right' %>
           </div>
         </td>
       </tr>
