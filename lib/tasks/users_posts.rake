@@ -20,15 +20,15 @@ namespace :db do
                       password:   'qwerty',
                       password_confirmation:  'qwerty')
 
-    10.times    do  |n|
-      name        =   Faker::Name.name
-      email   =   "ad#{n+1}@ad.ad"
-      diary_name   =   "Дневник №#{n+1}"
+    23.times    do  |n|
+      name = Faker::Name.name
+      email = "ad#{n+1}@ad.ad"
+      diary_name = "Дневник №#{n+1}"
       gender_id = rand(1..3)
       phone = Faker::PhoneNumber.cell_phone
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
-      password        =   "qwerty"
+      password = "qwerty"
       views_diary = Faker::Number.number(3)
       User.create!(   name:  name,
                       email:  email,
@@ -49,9 +49,9 @@ namespace :db do
     users = User.all
 
     users.each do |user|
-      10.times  do
+      23.times  do
         title = Faker::Lorem.sentence(1)
-        body = Faker::Lorem.paragraph(47)
+        body = Faker::Lorem.paragraph(67)
         user.posts.create!(title:  title, body: body)  
       end
     end

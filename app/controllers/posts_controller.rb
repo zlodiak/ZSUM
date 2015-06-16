@@ -11,9 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @post = Post.find_by(user_id: @user.id)    
-    p '55555555555'
-    p @user.name    
+    @post = Post.find_by(user_id: @user.id)       
   end
 
   def new
