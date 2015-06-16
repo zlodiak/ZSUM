@@ -9,8 +9,10 @@
       </div>
 
       <div class="col-xs-12 meta">
-        <span class="create_date"><%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
+        <span class="create_date">Дата создания: <%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
+        <span class="update_date">Дата изменения: <%= l @post.updated_at, format: "%e %b %Y, %H:%I" %></span>
         <span class="author">Автор: <%= link_to @user.name, user_path(@user) %></span>
+        <span class="views">Просмотров: <%=  %></span>
       </div>
 
       <div class="col-xs-12 body">
