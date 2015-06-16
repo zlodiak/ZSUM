@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])    
-    @posts = @user.posts
+    @posts = @user.posts.paginate(page: params[:page], :per_page => 7)
   end
 
   def show
