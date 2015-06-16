@@ -19,7 +19,8 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id]) 
   end
 
   def create
@@ -37,14 +38,14 @@ class PostsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    if  @post.update_attributes(post_params)
+      flash[:success] = "post_ updated"
+      redirect_to user_post_path(@user, @post)
+    else
+      flash[:error] = "post  updated failed"
+      render  'edit'
     end
   end
 
