@@ -10,7 +10,7 @@
 
       <div class="col-xs-12 meta">
         <span class="create_date"><%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
-        <span class="author">Автор: <%= link_to @post.user_id, user_path(@post.user_id) %></span>
+        <span class="author">Автор: <%= link_to @user.name, user_path(@user) %></span>
       </div>
 
       <div class="col-xs-12 body">
