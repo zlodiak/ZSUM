@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  #before_action :admin_user, only: :destroy
 
   def index
     @users = User.all
@@ -55,3 +55,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :diary_name, :password, :password_confirmation)
     end         
 end
+
