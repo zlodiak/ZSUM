@@ -1,4 +1,4 @@
-<div class="auth_area col-xs-6">
+<div class="auth_area col-xs-9">
   <% if signed_in? %>
     <span class="entered_name">Вы вошли как <%= link_to current_user.name, user_path(current_user.id) %></span>
     (<%= link_to t(:sign_out), signout_path, method: "delete"  %>)
