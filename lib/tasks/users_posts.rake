@@ -51,8 +51,9 @@ namespace :db do
     users.each do |user|
       23.times  do
         title = Faker::Lorem.sentence(1)
-        body = Faker::Lorem.paragraph(67)
-        user.posts.create!(title:  title, body: body)  
+        body =  Faker::Lorem.paragraph(67)
+        views = rand(1..88)
+        user.posts.create!(title:  title, body: body, views: views)  
       end
     end
   end
