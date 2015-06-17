@@ -19,4 +19,11 @@ class PagesController < ApplicationController
 
   def confidencial_politics
   end  
+
+  def popular_posts
+    @posts = Post.paginate(page: params[:page], :per_page => 7).order(views: :DESC)
+  end    
+
+  def last_posts
+  end      
 end

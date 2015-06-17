@@ -13,7 +13,7 @@
     <% @diaries.each do |diary| %>
       <tr>
         <td>
-          <%= link_to user_posts_url(diary.id) do %>
+          <%= link_to user_posts_path(diary) do %>
             <div class="col-xs-6"><%= diary.diary_name %></div>
             <div class="col-xs-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
             <div class="col-xs-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
@@ -24,4 +24,4 @@
   </table>
 </div>
 
-<%= will_paginate @diaries %>
+<%#= will_paginate @diaries %>
