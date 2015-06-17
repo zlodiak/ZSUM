@@ -13,4 +13,10 @@ class PagesController < ApplicationController
   def lasts_diary
     @diaries = User.paginate(page: params[:page], :per_page => 7).order(created_at: :DESC)
   end
+
+  def rules
+  end   
+
+  def confidencial_politics
+  end  
 end
