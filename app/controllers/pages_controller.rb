@@ -3,14 +3,14 @@ class PagesController < ApplicationController
   end
 
   def all_diary
-    @diaries = User.all
+    @diaries = User.paginate(page: params[:page], :per_page => 7)
   end
 
   def popular_diary
-    @diaries = User.all.order(views_diary: :DESC)
+    @diaries = User.paginate(page: params[:page], :per_page => 7).order(views_diary: :DESC)
   end
 
   def lasts_diary
-    @diaries = User.all.order(created_at: :DESC)
+    @diaries = User.paginate(page: params[:page], :per_page => 7).order(created_at: :DESC)
   end
 end

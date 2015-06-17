@@ -14,6 +14,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'populate'
 gem 'faker'
 gem 'russian', '~> 0.6.0'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug'

@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  #before_action :admin_user, only: :destroy
 
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page], :per_page => 7)
   end
 
   def show
@@ -44,9 +44,20 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted."
-    redirect_to users_url
+    @user = User.find(params[:id])
+
+    if @user.id != 1
+      p '000000'
+      p @user.id 
+      @user.destroy
+      flash[:success] = "User deleted."
+      redirect_to users_url
+    else
+      p '1111'
+      p @user.id 
+      flash[:error] = "admin_not_delete"
+      redirect_to users_url
+    end
   end 
 
   private
@@ -55,3 +66,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :diary_name, :password, :password_confirmation)
     end         
 end
+
