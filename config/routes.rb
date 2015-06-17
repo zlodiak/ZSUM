@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'pages/all_diary'
   get 'pages/popular_diary'
   get 'pages/lasts_diary'
+  get 'pages/rules'
+  get 'pages/confidencial_politics'
 
   # match '/users', to: 'users#index', via:  'get'
   match '/signup', to: 'users#new', via:  'get'
