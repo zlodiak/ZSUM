@@ -25,5 +25,6 @@ class PagesController < ApplicationController
   end    
 
   def last_posts
+    @posts = Post.paginate(page: params[:page], :per_page => 7).order(created_at: :DESC)
   end      
 end
