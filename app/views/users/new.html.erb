@@ -21,6 +21,12 @@
   </div>   
 
   <div>
+    <%= f.label :gender  %>
+    <%#= f.select(:gender_name) %>
+    <%= f.select :gender,  User::GENDER_TYPES %>
+  </div>    
+
+  <div>
     <%= f.label :phone  %>
     <%= f.text_field  :phone  %>   
   </div> 
