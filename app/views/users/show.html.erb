@@ -10,7 +10,11 @@
 
 <div class="row">
   <div class="label_table col-xs-2">Gender:</div>
-  <div class="info_table col-xs-10"><%= @user.gender.gender_name %></div>
+  <div class="info_table col-xs-10">
+    <% if @user.gender_id %>
+      <%= @user.gender.gender_name %>
+    <% end %>
+  </div>
 </div>    
 
 <div class="row">
