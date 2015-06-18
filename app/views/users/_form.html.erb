@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user) do  |f| %>
   <div>
     <%= render  'shared/error_messages' %>
   </div>
@@ -19,6 +19,27 @@
   </div>   
 
   <div>
+    <%= f.label :gender  %>
+    <%#= f.select(:gender_name) %>
+    <%= f.select :gender_id,  User::GENDER_TYPES %>
+  </div>    
+
+  <div>
+    <%= f.label :phone  %>
+    <%= f.text_field  :phone  %>   
+  </div> 
+
+  <div>
+    <%= f.label :skype  %>
+    <%= f.text_field  :skype  %>   
+  </div> 
+
+  <div>
+    <%= f.label :info  %>
+    <%= f.text_area  :info, cols: 30, rows: 10 %>   
+  </div>       
+
+  <div>
     <%= f.label :password %>
     <%= f.password_field  :password %>
   </div>
@@ -29,8 +50,14 @@
   </div>
 
   <div>
-    <%= f.submit "save", class:  ""  %>
+    <%= f.submit  "save", class:  ""  %>
   </div>
 <%  end %>
+
+
+
+
+
+
 
 

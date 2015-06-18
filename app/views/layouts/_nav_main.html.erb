@@ -13,5 +13,8 @@
   <li><%= link_to 'search',  '#' %></li>
   <li><%= link_to 'tags',  '#' %></li>
   <li><%= link_to 'confidencial_policits',  pages_confidencial_politics_path %></li>
+  <% if signed_in? %>
+    <li><%= link_to 'profile', user_path(current_user.id) %></li>
+  <% end %>
 </ol>
 
