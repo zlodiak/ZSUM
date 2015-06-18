@@ -8,38 +8,40 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="label_table col-xs-2">Gender:</div>
-  <div class="info_table col-xs-10">
-    <% if @user.gender_id %>
-      <%= @user.gender.gender_name %>
-    <% end %>
+<div class="sheet">
+  <div class="row">
+    <div class="label_table col-xs-4 col-sm-2">Gender:</div>
+    <div class="info_table col-xs-8 col-sm-10">
+      <% if @user.gender_id %>
+        <%= @user.gender.gender_name %>
+      <% end %>
+    </div>
+  </div>    
+
+  <div class="row">
+    <div class="label_table col-xs-4 col-sm-2">Email:</div>
+    <div class="info_table col-xs-8 col-sm-10"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></div>
+  </div>    
+
+  <div class="row">
+    <div class="label_table col-xs-4 col-sm-2">Phone:</div>
+    <div class="info_table col-xs-8 col-sm-10"><%= @user.phone %></div>
+  </div>    
+
+  <div class="row">
+    <div class="label_table col-xs-4 col-sm-2">Skype:</div>
+    <div class="info_table col-xs-8 col-sm-10"><%= @user.skype %></div>
+  </div>    
+
+  <div class="row">
+    <div class="label_table col-xs-4 col-sm-2">diary_name:</div>
+    <div class="info_table col-xs-8 col-sm-10"><%= @user.diary_name %></div>
+  </div>  
+
+  <div class="row">
+    <div class="label_table col-xs-4 col-sm-2">Info:</div>
+    <div class="info_table col-xs-8 col-sm-10"><%= @user.info %></div>
   </div>
-</div>    
-
-<div class="row">
-  <div class="label_table col-xs-2">Email:</div>
-  <div class="info_table col-xs-10"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></div>
-</div>    
-
-<div class="row">
-  <div class="label_table col-xs-2">Phone:</div>
-  <div class="info_table col-xs-10"><%= @user.phone %></div>
-</div>    
-
-<div class="row">
-  <div class="label_table col-xs-2">Skype:</div>
-  <div class="info_table col-xs-10"><%= @user.skype %></div>
-</div>    
-
-<div class="row">
-  <div class="label_table col-xs-2">diary_name:</div>
-  <div class="info_table col-xs-10"><%= @user.diary_name %></div>
-</div>  
-
-<div class="row">
-  <div class="label_table col-xs-2">Info:</div>
-  <div class="info_table col-xs-10"><%= @user.info %></div>
 </div>
 
 
