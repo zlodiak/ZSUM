@@ -11,21 +11,19 @@
 
     <div class="col-xs-12 meta">
       <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-5">
           <span class="create_date">Дата создания: <%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
         </div>
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-7">
           <span class="author">Автор: <%= link_to @user.name, user_path(@user) %></span>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-5">
           <span class="update_date">Дата изменения: <%= l @post.updated_at, format: "%e %b %Y, %H:%I" %></span>      
         </div>
 
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-7">
           <span class="views">Просмотров: <%= @post.views %></span>
         </div>
       </div>
