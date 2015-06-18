@@ -1,58 +1,97 @@
-<%= form_for(@user) do  |f| %>
-  <div>
-    <%#= render  'shared/error_messages' %>
+<%= form_for(@user) do |f| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%#= render  'shared/error_messages' %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field  :name %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :name %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :name %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :email  %>
-    <%= f.text_field  :email  %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :email  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :email  %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :diary_name  %>
-    <%= f.text_field  :diary_name  %>   
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :diary_name  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :diary_name  %>   
+    </div>
   </div>   
 
-  <div>
-    <%= f.label :gender  %>
-    <%#= f.select(:gender_name) %>
-    <%= f.select :gender_id,  User::GENDER_TYPES %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :gender  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.select :gender_id,  User::GENDER_TYPES %>
+    </div>
   </div>    
 
-  <div>
-    <%= f.label :phone  %>
-    <%= f.text_field  :phone  %>   
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :phone  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :phone  %>  
+    </div> 
   </div> 
 
-  <div>
-    <%= f.label :skype  %>
-    <%= f.text_field  :skype  %>   
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :skype  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :skype  %>   
+    </div>
   </div> 
 
-  <div>
-    <%= f.label :info  %>
-    <%= f.text_area  :info, cols: 30, rows: 10 %>   
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :info  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_area  :info, cols: 30, rows: 10 %>   
+    </div>
   </div>       
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field  :password %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :password %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.password_field  :password %>
+    </div>
   </div>
 
-  <div>
-    <%= f.label :password_confirmation, "Confirmation"  %>
-    <%= f.password_field  :password_confirmation  %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :password_confirmation, "Confirmation"  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.password_field  :password_confirmation  %>
+    </div>
   </div>
 
-  <div>
-    <%= f.submit %>
+  <div class="row actions">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.submit %>
+    </div>
   </div>
-<%  end %>
+<% end %>
 
 
 
