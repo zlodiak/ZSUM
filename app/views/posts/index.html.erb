@@ -1,9 +1,10 @@
-<h2 class="blog-post-title">listing_posts</h2>
+<h2 class="blog-post-title">???listing_posts</h2>
 
 <div class="row">
   <% @posts.each do |post| %>
     <article class="article blog_teaser">
       <h3 class="col-xs-10 h3"><%= post.title %></h3>
+
       <div class="col-xs-2 h3">
         <% if signed_in? && current_user.admin? %>
           <%= link_to '', user_post_path(@user, post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>

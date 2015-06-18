@@ -46,7 +46,7 @@
   }
 
   .blog_post .meta{
-
+    margin-bottom: 8px;
   }
 
     .blog_post .meta .author{
@@ -61,6 +61,7 @@
         color: #337ab7;
       }
 
+    .blog_post .meta .update_date,
     .blog_post .meta .create_date{
       color: #999;
       margin-right: 10px;

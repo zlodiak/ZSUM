@@ -1,19 +1,31 @@
 <%= form_for [@user, @post] do |f| %>
-  <div>
+  <div class="row">
     <%#= render  'shared/error_messages' %>
   </div>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :title %>
+    </div>
+
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field :title %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :body %>
+    </div>
+
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_area :body %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

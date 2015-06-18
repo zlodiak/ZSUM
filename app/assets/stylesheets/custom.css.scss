@@ -301,6 +301,10 @@ form label,
 form{
 }
 
+  form .row{
+    margin-bottom: 23px;
+  }
+
   form label{
     min-width: 150px;
 
@@ -312,7 +316,7 @@ form{
   form input[type='text']{
     padding: 5px 5px;
     overflow: center;
-    width: 300px;
+    width: 100%;
 
     vertical-align: baseline;
   }
@@ -334,6 +338,12 @@ form{
     text-decoration: none;  
     margin-top: 15px;
     margin-right: 15px;
+  }
+
+  form textarea{
+    overflow: hidden;
+    width: 100%;
+    min-height: 400px;
   }
 
   form .field_with_errors{
