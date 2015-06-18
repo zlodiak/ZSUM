@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'pages/confidencial_politics'
   get 'pages/popular_posts'
   get 'pages/last_posts'
+  get 'pages/my_last_posts'
 
   # match '/users', to: 'users#index', via:  'get'
   match '/signup', to: 'users#new', via:  'get'
