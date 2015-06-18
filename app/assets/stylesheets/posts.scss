@@ -46,8 +46,14 @@
   }
 
   .blog_post .meta{
+    font-size: 14px;
+
     margin-bottom: 8px;
   }
+
+  .blog_teaser .meta{
+    margin-bottom: 0;
+  }  
 
     .blog_post .meta .author{
 
@@ -61,10 +67,11 @@
         color: #337ab7;
       }
 
+    .blog_post .meta .author,
+    .blog_post .meta .views,
     .blog_post .meta .update_date,
     .blog_post .meta .create_date{
       color: #999;
-      margin-right: 10px;
     }
 
   .blog_post .body{
