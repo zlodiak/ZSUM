@@ -106,8 +106,13 @@ a{
  * Blog name and description
  */
 
+.blog-header:hover {
+  text-decoration: none;
+}
+
 .blog-header {
   overflow: hidden;
+  text-decoration: none;
 }
 .blog-title {
   margin-top: 10px;
@@ -286,9 +291,6 @@ form label,
 
 
 
-.glyphicon{
-  margin-left: 10px;
-}
 
 
 
@@ -478,3 +480,19 @@ form{
     font-size: 18px;
     font-weight: bold;
   }
+
+
+
+
+/* actions */
+
+
+.glyphicon{
+  margin-left: 10px;
+
+  
+}
+
+.blog-main a.glyphicon{
+  color: red;
+}
