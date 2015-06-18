@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
       Digest::SHA1.hexdigest(token.to_s)
   end  
 
+  GENDER_TYPES = [['Lisbon', 1], ['Madrid', 2]]
+
   private
 
     def create_remember_token

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617082134) do
+ActiveRecord::Schema.define(version: 20150617190704) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "gender_name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150617082134) do
     t.string   "phone"
     t.string   "skype"
     t.string   "info"
-    t.integer  "gender_id"
+    t.integer  "gender_id",       default: 1
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "diary_name"
