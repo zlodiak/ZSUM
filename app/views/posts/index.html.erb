@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-xs-12 body">
-        <%= link_to truncate(post.body, length: 200), user_post_path(@user.id, post.id) %>
+        <%= link_to truncate(post.body, length: 200), user_post_path(@user, post.id) %>
       </div>
     </article> 
   <% end %>      
