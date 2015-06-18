@@ -1,0 +1,7 @@
+<h4>links</h4>
+
+<ol class="list-unstyled">
+  <li><%= link_to 'profile', user_path(current_user.id) %></li>
+  <li><%= link_to 'edit_profile', edit_user_path(current_user.id) %></li>
+  <li><%= link_to 'my_posts', user_posts_path(current_user.id) %></li>
+</ol>

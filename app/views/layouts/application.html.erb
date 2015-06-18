@@ -42,9 +42,11 @@
             <%= render 'layouts/nav_main' %>
           </div>
 
-          <div class="sidebar-module sidebar-module-alt">
-            <%= render 'layouts/links_area' %>
-          </div>
+          <% if signed_in? %>
+            <div class="sidebar-module sidebar-module-alt">
+              <%= render 'layouts/nav_user' %>
+            </div>                      
+          <% end %>            
         </div>
 
         <div class="col-sm-9 blog-main">
