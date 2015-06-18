@@ -1,15 +1,15 @@
 <%= form_for [@user, @post] do |f| %>
   <div>
-    <%= render  'shared/error_messages' %>
+    <%#= render  'shared/error_messages' %>
   </div>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :body %><br>
+    <%= f.label :body %>
     <%= f.text_area :body %>
   </div>
 
