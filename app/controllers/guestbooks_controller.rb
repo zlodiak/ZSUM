@@ -2,7 +2,7 @@ class GuestbooksController < ApplicationController
   before_action :set_guestbook, only: [:show, :edit, :update, :destroy]
 
   def index
-    @guestbooks = Guestbook.paginate(page: params[:page], :per_page => 10)
+    @guestbooks = Guestbook.paginate(page: params[:page], :per_page => 10).order('created_at ASC')
   end
 
   def show
