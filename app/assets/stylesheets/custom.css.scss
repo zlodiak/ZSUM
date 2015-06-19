@@ -37,6 +37,8 @@ h3, .h3{
   margin-bottom: 0;
 }
 
+
+
 a{
   text-decoration: underline;
 }
@@ -386,7 +388,7 @@ form{
   form input[type='email'],
   form input[type='text']{
     padding: 5px 5px;
-    overflow: center;
+    overflow: hidden;
     width: 100%;
 
     vertical-align: baseline;

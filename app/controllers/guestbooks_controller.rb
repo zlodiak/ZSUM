@@ -20,11 +20,9 @@ class GuestbooksController < ApplicationController
     @guestbook = Guestbook.new(guestbook_params)     
     
     if  @guestbook.save
-      p 111111111111
       flash[:success] = "message_saved"
       redirect_to  guestbooks_path
     else
-      p 222222222222
       flash.now[:error] = 'message_not_saved' 
       @guestbooks = Guestbook.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
       render 'index'

@@ -1,6 +1,6 @@
 <div class="col-xs-12 guestbook_form">
   <%= form_for(@guestbook) do |f| %>
-    <div class="row">
+    <div class="row hide">
       <div class="col-xs-12">
         <%  if  @guestbook.errors.any? %>
           <div  id="error_explanation">
@@ -21,7 +21,11 @@
         <%= f.label :name %>
       </div>
       <div class="col-xs-12 col-sm-10">
-        <%= f.text_field :name %>
+        <% if signed_in? %>
+          <%= f.text_field :name, value: current_user.name %>
+        <% else %>
+          <%= f.text_field :name %>
+        <% end %>
       </div>
     </div>
 
@@ -30,7 +34,11 @@
         <%= f.label :email %>
       </div>
       <div class="col-xs-12 col-sm-10">
-        <%= f.text_field :email %>
+        <% if signed_in? %>
+          <%= f.text_field :email, value: current_user.email %>
+        <% else %>
+          <%= f.text_field :email %>
+        <% end %>      
       </div>
     </div>  
 
