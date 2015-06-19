@@ -11,6 +11,10 @@ body {
   color: #555;
 }
 
+  body a:hover{
+    background: none;
+  }
+
 table{
   width: 100%;
 }
@@ -131,10 +135,25 @@ a{
  */
 
 .blog-main {
+  /*  font-size: 18px;
+    line-height: 1.5;
+    text-align: left;*/
+
+  color: #555;
+  display: block;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;
-  line-height: 1.5;
-  text-align: left;
+  line-height: 27px; 
 }
+
+
+
+
+
+
+
+
+
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
@@ -187,7 +206,7 @@ a{
 }
   .pagination .previous_page:before {
     position: absolute;
-    top: -6px;
+    top: 2px;
     left: 0;
 
     font-size: 30px;
@@ -197,7 +216,7 @@ a{
 
   .pagination .next_page:before {
     position: absolute;
-    top: -6px;
+    top: 2px;
     right: 0;
 
     font-size: 30px;

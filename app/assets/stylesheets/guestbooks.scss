@@ -1,3 +1,22 @@
 // Place all the styles related to the guestbooks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.guestbook_post{
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+  .guestbook_post .name{
+
+  }
+
+  .guestbook_post .email{
+    text-align: right;
+  }
+
+  .guestbook_post .message{
+
+  }    

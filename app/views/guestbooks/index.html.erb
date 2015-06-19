@@ -1,25 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h2 class="blog-post-title">guestbook</h2>
 
-<h1>Listing Guestbooks</h1>
+<div class="row">
+  <% @guestbooks.each do |guestbook| %>
+    <article class="article guestbook_post">
+      <h3 class="col-xs-12 col-sm-6 h3 name"><%= guestbook.name %></h3>
+      <div class="col-xs-12 col-sm-6 email"><%= guestbook.email %></div>
+      <div class="col-xs-12 message"><%= guestbook.message %></div>
+    </article> 
+  <% end %>      
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= will_paginate @guestbook %>
 
-  <tbody>
-    <% @guestbooks.each do |guestbook| %>
-      <tr>
-        <td><%= link_to 'Show', guestbook %></td>
-        <td><%= link_to 'Edit', edit_guestbook_path(guestbook) %></td>
-        <td><%= link_to 'Destroy', guestbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Guestbook', new_guestbook_path %>
+
+<%#= link_to 'Show', guestbook %>
+<%#= link_to 'Edit', edit_guestbook_path(guestbook) %>
+<%#= link_to 'Destroy', guestbook, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%#= link_to 'New Guestbook', new_guestbook_path %>
