@@ -17,10 +17,13 @@ class GuestbooksController < ApplicationController
   end
 
   def create
-    @guestbook = Guestbook.new(guestbook_params)     
+    @guestbook = Guestbook.new(guestbook_params) 
     
     if  @guestbook.save
       flash[:success] = "message_saved"
+      if signed_in?
+        @guestbook.update_attributes(:name => false, :user_id => current_user.id) 
+      end
       redirect_to  guestbooks_path
     else
       flash.now[:error] = 'message_not_saved' 
