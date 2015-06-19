@@ -32,5 +32,17 @@ class PagesController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts
     # @posts = Post.paginate(page: params[:page], :per_page => 7).order(created_at: :DESC)
-  end      
+  end   
+
+  def lang_toggle
+    if params[:locale] == 'ru'
+      p 'en'
+      I18n.locale = 'en'
+    else
+      p 'ru'
+      I18n.locale = 'ru'
+    end
+
+    redirect_to :back
+  end   
 end
