@@ -14,6 +14,7 @@ namespace :db do
       Guestbook.create(
         user_id: user.id,
         email: user.email, 
+        created_at: Faker::Date.backward(14)
         message: Faker::Lorem.paragraph(10)
       ) 
     end    
