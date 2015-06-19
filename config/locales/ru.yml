@@ -20,12 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  hello: 'Привет, мир'
+  diary_of_a_madman: 'Записки сумасшедшего'
   name: 'Имя'
   email: 'Email'
   password: 'Пароль'
-  sign_up: 'Зарегистрироваться'
-  sign_in: 'Войти'
   sign_out: 'Выйти'  
   male: 'Муж'  
   female: 'Жен'  
+  sergey_kalinin: 'Сергей Калинин'
+  powered_by: 'Разработано на'
+  and: 'и'
+  sign_in: 'Войти'
+  sign_up: 'Зарегистрироваться'
+  logged_on: 'Вы вошли как'
+  service_of_wonderful_blogs: 'Сервис замечательнейших блогов'
