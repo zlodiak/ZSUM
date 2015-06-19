@@ -3,7 +3,13 @@
 <div class="row">
   <% @guestbooks.each do |guestbook| %>
     <article class="article guestbook_post">
-      <h3 class="col-xs-12 col-sm-6 h3 name"><%= guestbook.name %></h3>
+      <h3 class="col-xs-12 col-sm-6 h3 name">
+        <% if guestbook.user_id %>
+          <%= link_to guestbook.user.name, user_path(guestbook.user.id) %>
+        <% else %>
+          <%= guestbook.name %>
+        <% end %>
+      </h3>
       <div class="col-xs-12 col-sm-6 email"><%= mail_to guestbook.email, guestbook.email %></div>
       <div class="col-xs-12 message"><%= guestbook.message %></div>
     </article> 
