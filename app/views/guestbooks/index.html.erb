@@ -1,6 +1,10 @@
 <h2 class="blog-post-title">guestbook</h2>
 
 <div class="row">
+  <%= render 'form' %>
+</div>
+
+<div class="row">
   <% @guestbooks.each do |guestbook| %>
     <article class="article guestbook_post">
       <h3 class="col-xs-12 col-sm-6 h3 name">
@@ -16,7 +20,7 @@
   <% end %>      
 </div>
 
-<%= will_paginate @guestbook %>
+<%= will_paginate %>
 
 
 

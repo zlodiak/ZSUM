@@ -426,15 +426,16 @@ form{
   form textarea{
     overflow: hidden;
     width: 100%;
-    min-height: 400px;
+    height: 400px;
   }
 
   form .field_with_errors{
-    display: inline-block;
+    /*display: inline-block;*/
 
     vertical-align: baseline;
   }
 
+    form .field_with_errors textarea,
     form .field_with_errors input{
       border: 1px solid red;
     }
