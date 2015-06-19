@@ -59,5 +59,5 @@ module SessionsHelper
       flash[:error] = "no permitted operation"
       redirect_to(root_url) 
     end     
-  end     
+  end   
 end
