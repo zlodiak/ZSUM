@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :posts
   end  
 
+  get 'pages/lang_toggle'
   get 'pages/home'
   get 'pages/all_diary'
   get 'pages/popular_diary'
