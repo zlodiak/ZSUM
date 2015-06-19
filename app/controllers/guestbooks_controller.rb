@@ -1,28 +1,20 @@
 class GuestbooksController < ApplicationController
   before_action :set_guestbook, only: [:show, :edit, :update, :destroy]
 
-  # GET /guestbooks
-  # GET /guestbooks.json
   def index
-    @guestbooks = Guestbook.all
+    @guestbooks = Guestbook.paginate(page: params[:page], :per_page => 10)
   end
 
-  # GET /guestbooks/1
-  # GET /guestbooks/1.json
   def show
   end
 
-  # GET /guestbooks/new
   def new
     @guestbook = Guestbook.new
   end
 
-  # GET /guestbooks/1/edit
   def edit
   end
 
-  # POST /guestbooks
-  # POST /guestbooks.json
   def create
     @guestbook = Guestbook.new(guestbook_params)
 
@@ -37,8 +29,6 @@ class GuestbooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /guestbooks/1
-  # PATCH/PUT /guestbooks/1.json
   def update
     respond_to do |format|
       if @guestbook.update(guestbook_params)
@@ -51,8 +41,6 @@ class GuestbooksController < ApplicationController
     end
   end
 
-  # DELETE /guestbooks/1
-  # DELETE /guestbooks/1.json
   def destroy
     @guestbook.destroy
     respond_to do |format|
