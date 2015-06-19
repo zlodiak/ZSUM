@@ -3,6 +3,7 @@ class GuestbooksController < ApplicationController
 
   def index
     @guestbooks = Guestbook.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
+    @guestbook = Guestbook.new
   end
 
   def show
@@ -16,16 +17,17 @@ class GuestbooksController < ApplicationController
   end
 
   def create
-    @guestbook = Guestbook.new(guestbook_params)
-
-    respond_to do |format|
-      if @guestbook.save
-        format.html { redirect_to @guestbook, notice: 'Guestbook was successfully created.' }
-        format.json { render :show, status: :created, location: @guestbook }
-      else
-        format.html { render :new }
-        format.json { render json: @guestbook.errors, status: :unprocessable_entity }
-      end
+    @guestbook = Guestbook.new(guestbook_params)     
+    
+    if  @guestbook.save
+      p 111111111111
+      flash[:success] = "message_saved"
+      redirect_to  guestbooks_path
+    else
+      p 222222222222
+      flash.now[:error] = 'message_not_saved' 
+      @guestbooks = Guestbook.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
+      render 'index'
     end
   end
 
@@ -57,6 +59,6 @@ class GuestbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guestbook_params
-      params[:guestbook]
+      params.require(:guestbook).permit(:name, :email, :message)
     end
 end
