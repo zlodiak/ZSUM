@@ -29,6 +29,16 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
+  scope "/:locale", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :posts
+    root to: redirect("/%{locale}/posts", status: 302)
+  end
+
+  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+
+  get "/*path", to: redirect("/#{I18n.default_locale}/%{path}", status: 302), constraints: {path: /(?!(#{I18n.available_locales.join("|")})\/).*/}, format: false
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

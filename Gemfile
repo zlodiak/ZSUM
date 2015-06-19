@@ -15,6 +15,7 @@ gem 'populate'
 gem 'faker'
 gem 'russian', '~> 0.6.0'
 gem 'will_paginate'
+gem 'i18n-js'
 
 group :development, :test do
   gem 'byebug'
