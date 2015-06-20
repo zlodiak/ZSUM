@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   belongs_to  :gender
   has_one     :user
 
+  has_attached_file :avatar
+
   def User.new_remember_token
       SecureRandom.urlsafe_base64
   end
