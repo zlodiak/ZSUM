@@ -1,5 +1,8 @@
 <div class="row">
   <h2 class="blog-post-title blog-post-title-lite col-xs-10"><%= @user.name %></h2>
+
+  <img src="<%= @user.avatar.url %>" alt="" />
+
   <div class="col-xs-2">
     <% if signed_in? && current_user.admin? %>
       <%= link_to '', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>  
