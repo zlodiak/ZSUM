@@ -1,3 +1,7 @@
-<% if @user.avatar.url(:thumb) %>
-  <img class="thumb_icon thumb_icon_h2 pull-left" src="<%= @user.avatar.url(:thumb) %>" alt="" />
+<% if current_user?(@user) %>
+  <% if @user.avatar_file_name %>
+    <%= image_tag(@user.avatar.url(:thumb) , class: "thumb_icon thumb_icon_h2 pull-left", alt: '') %>
+  <% else %>
+    <%= image_tag('/images/no-user-image.gif', class: "thumb_icon thumb_icon_h2 pull-left", width: '30', height: '30', alt: '') %>
+  <% end %>
 <% end %>
