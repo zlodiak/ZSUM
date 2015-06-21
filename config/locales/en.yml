@@ -52,3 +52,5 @@ en:
   nav_main: 'Menu'
   nav_user: 'User menu'
   posts: 'Posts:'
+  post: 'Post:'
+  edit_post: 'Editing post:'
