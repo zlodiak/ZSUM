@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
       Digest::SHA1.hexdigest(token.to_s)
   end  
 
-  GENDER_TYPES = [['Lisbon', 1], ['Madrid', 2]]
+  GENDER_TYPES = [['-', 1], ['Муж', 2], ['Жен', 3]]
 
   private
 
