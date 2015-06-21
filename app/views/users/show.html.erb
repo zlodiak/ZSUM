@@ -1,6 +1,8 @@
 <div class="row">
-  <div class="col-xs-12">
-    <%= render 'shared/thumb_icon' %>
+  <div class="col-xs-10">
+    <% if current_user?(@user) %>
+      <%= render 'shared/thumb_icon' %>
+    <% end %>
 
     <% if current_user?(@user) %><div class="col-xs-10"><% end %>
       <h2 class="blog-post-title blog-post-title-lite"><%= @user.name %></h2>

@@ -51,13 +51,6 @@
     margin-bottom: 8px;
   }
 
-  .blog_teaser .meta{
-    margin: 5px 0;
-  }  
-
-    .blog_post .meta .author{
-
-    }
 
       .blog_post .meta .author a:hover{
         color: #23527c;
@@ -88,4 +81,12 @@
     .blog_post .body{
       color: #555;
       display: block;
+    }
+
+  .blog_teaser .meta{
+    margin: 5px 0;
+  }  
+
+    .blog_teaser .meta .author{
+      text-align: left;
     }
