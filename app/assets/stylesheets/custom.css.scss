@@ -13,6 +13,7 @@ body {
 
   body a:hover{
     background: none;
+    text-decoration: none;
   }
 
 table{
@@ -39,9 +40,7 @@ h3, .h3{
 
 
 
-a{
-  text-decoration: underline;
-}
+
 
 .hide{
   display: none !important;
@@ -83,10 +82,9 @@ a{
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
-  color: #fff;
-  text-decoration: underline;
 
-  background: #000;
+
+
 }
 
 /* Active state gets a caret at the bottom */
@@ -167,11 +165,17 @@ a{
   background-color: #f5f5f5;
   border-radius: 4px;
   margin-bottom: 25px;
+  overflow: hidden;
 }
 
   .sidebar-module-inset a{
-    text-decoration: none;
+    
 
+  }
+
+  .sidebar-module-inset img{
+    width: 100%;
+    margin-bottom: 16px;
   }
 
 .sidebar-module-inset p:last-child,
@@ -181,10 +185,7 @@ a{
 }
 .sidebar-module-inset a.avtive,
 .sidebar-module-inset a:hover{
-  background: #000;
-  border-radius: 4px;
 
-  text-decoration: none;
 }
 
 .blog-main a,
@@ -199,6 +200,10 @@ a{
 .sidebar-module-alt a:hover{
   color: #23527c;
   text-decoration: none;
+}
+
+.sidebar-module-alt{
+  margin-top: 22px;
 }
 
 /* Pagination */

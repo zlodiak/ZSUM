@@ -1,7 +1,9 @@
 <div class="row">
-  <h2 class="blog-post-title blog-post-title-lite col-xs-10"><%= @user.name %></h2>
+  <div class="col-xs-12">
+    <%= render 'shared/thumb_icon' %>
 
-  <img src="<%= @user.avatar.url %>" alt="" />
+    <h2 class="blog-post-title blog-post-title-lite col-xs-10"><%= @user.name %></h2>
+  </div>
 
   <div class="col-xs-2">
     <% if signed_in? && current_user.admin? %>

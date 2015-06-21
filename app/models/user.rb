@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
   belongs_to  :gender
   has_one     :user
 
-  has_attached_file :avatar
+  has_attached_file :avatar, :styles => { :large => "300x300>", :medium => "100x100>", :thumb => "30x30>" }
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 
   def User.new_remember_token
       SecureRandom.urlsafe_base64
