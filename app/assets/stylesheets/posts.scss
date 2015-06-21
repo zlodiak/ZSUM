@@ -45,6 +45,7 @@
     margin-bottom: 5px;
   }
 
+  .blog_teaser .meta,
   .blog_post .meta{
     font-size: 14px;
 
@@ -60,13 +61,13 @@
         color: #337ab7;
       }
 
-    .blog_post .meta .author,
-    .blog_post .meta .views,
-    .blog_post .meta .update_date,
-    .blog_post .meta .create_date{
+    .blog_teaser .meta,
+    .blog_post .meta{
       color: #999;
     }
 
+    .blog_teaser .meta .author,
+    .blog_teaser .meta .views,
     .blog_post .meta .author,
     .blog_post .meta .views{
       text-align: right;
