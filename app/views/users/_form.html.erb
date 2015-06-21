@@ -69,6 +69,18 @@
   </div>   
 
   <div class="row">
+    <% if @user.avatar_file_name %>
+      <div class="col-xs-1 col-sm-offset-2 image_loaded">
+        <%= link_to @user.avatar.url, class: 'fancybox' do %>
+          <%= image_tag(@user.avatar.url(:thumb) , class: "thumb_icon thumb_icon_h2 pull-left", alt: '') %>
+        <% end %>
+      </div>
+      <div class="col-xs-9 image_delete">
+        <%= check_box_tag(:delete_avatar) %>
+        <%= label_tag(:delete_avatar, "Удалить аватар") %>
+      </div>
+    <% end %>
+
     <div class="col-xs-12 col-sm-2">
       <%= f.label :avatar %>
     </div>

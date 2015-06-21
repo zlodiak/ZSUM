@@ -34,7 +34,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if  @user.update_attributes(user_params)
+    if @user.update_attributes(user_params)
+      if params[:delete_avatar]
+        @user.update_attributes(
+          avatar_file_name: nil, 
+          avatar_content_type: nil, 
+          avatar_file_size: nil
+        )
+      end
+      
       flash[:success] = "Profile  updated"
       redirect_to @user
     else
@@ -60,7 +68,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :diary_name, :password, :password_confirmation, :phone, :skype, :info, :avatar)
+      params.require(:user).permit(:name, :email, :diary_name, :password, :gender_id, :password_confirmation, :phone, :skype, :info, :avatar, :delete_avatar)
     end         
 end
 
