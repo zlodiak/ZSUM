@@ -1,23 +1,17 @@
-
-    <% if !current_user?(@user) %>
-      <div class="col-sx-12">
-      <%= render 'shared/thumb_icon' %>
-      <div class="row">
-        <div class="col-xs-10">
-          <h2 class="blog-post-title h2"><%=t (:edit_post)%> <%= @post.title %></h2>
-        </div>
-      </div>
-      </div>
-    <% else %>
-      <div class="row">
-        <h2 class="blog-post-title h2 col-xs-10"><%=t (:edit_post)%> <%= @post.title %></h2>
-      </div>
-    <% end %>
-
-
-      
-
-
+<% if !current_user?(@user) %>
+  <div class="col-sx-12">
+  <%= render 'shared/thumb_icon' %>
+  <div class="row">
+    <div class="col-xs-10">
+      <h2 class="blog-post-title h2"><%=t (:edit_post)%> <%= @post.title %></h2>
+    </div>
+  </div>
+  </div>
+<% else %>
+  <div class="row">
+    <h2 class="blog-post-title h2 col-xs-10"><%=t (:edit_post)%> <%= @post.title %></h2>
+  </div>
+<% end %>
 
 <%= render 'form' %>
 

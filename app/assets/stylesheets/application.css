@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require fancybox
  *= require_tree .
  *= require_self
  */
+
+/* fancybox */
+.fancybox-skin{
+  background: rgb(195, 190, 190);
+  background: #d4d4d4;
+}
