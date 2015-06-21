@@ -17,6 +17,7 @@ namespace :db do
                       skype: 'ererer',
                       info: 'Моя бабушка курит трубку',
                       admin: true,
+                      avatar: Faker::Avatar.image,
                       password:   'qwerty',
                       password_confirmation:  'qwerty')
 
@@ -28,6 +29,7 @@ namespace :db do
       phone = Faker::PhoneNumber.cell_phone
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
+      avatar = avatar: Faker::Avatar.image,
       password = "qwerty"
       views_diary = Faker::Number.number(3)
       User.create!(   name:  name,
@@ -39,6 +41,7 @@ namespace :db do
                       skype: skype,
                       info: info,
                       admin: false,
+                      avatar: avatar,
                       password:   password,
                       password_confirmation:  password)
     end
