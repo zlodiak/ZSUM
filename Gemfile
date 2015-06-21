@@ -16,6 +16,7 @@ gem 'faker'
 gem 'russian', '~> 0.6.0'
 gem 'will_paginate'
 gem 'paperclip'
+gem 'fancybox2-rails', '~> 0.2.8'
 
 group :development, :test do
   gem 'byebug'

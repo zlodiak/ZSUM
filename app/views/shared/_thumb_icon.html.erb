@@ -1,5 +1,7 @@
 <% if @user.avatar_file_name %>
-  <%= image_tag(@user.avatar.url(:thumb) , class: "thumb_icon thumb_icon_h2 pull-left", alt: '') %>
+  <%= link_to @user.avatar.url, class: 'fancybox' do %>
+    <%= image_tag(@user.avatar.url(:thumb) , class: "thumb_icon thumb_icon_h2 pull-left", alt: '') %>
+  <% end %>
 <% else %>
   <%= image_tag('/images/no-user-image.gif', class: "thumb_icon thumb_icon_h2 pull-left", width: '30', height: '30', alt: '') %>
 <% end %>
