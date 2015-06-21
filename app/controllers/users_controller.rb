@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    
     if @user.update_attributes(user_params)
       if params[:delete_avatar]
         @user.update_attributes(
