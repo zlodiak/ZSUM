@@ -4,4 +4,5 @@
   <li><%= link_to t(:profile), user_path(current_user.id) %></li>
   <li><%= link_to t(:edit_profile), edit_user_path(current_user.id) %></li>
   <li><%= link_to t(:my_posts), user_posts_path(current_user.id) %></li>
+  <li><%= link_to t(:add_post), new_user_post_path(current_user.id) %></li>
 </ul>
