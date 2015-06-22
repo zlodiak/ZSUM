@@ -48,18 +48,16 @@ module SessionsHelper
   end  
   
   def correct_user
-    @user = User.find(params[:id])
-
-    unless  current_user?(@user) || current_user.admin?
+    # @user = User.find(params[:id])
+    unless  current_user?(current_user) || current_user.admin?
       flash[:error] = "no permitted operation"
       redirect_to(root_url) 
     end     
   end   
 
   def correct_user_post
-    @user = User.find(params[:user_id])
-
-    unless  current_user?(@user) || current_user.admin?
+    # @user = User.find(params[:user_id])
+    unless  current_user?(current_user) || current_user.admin?
       flash[:error] = "no permitted operation"
       redirect_to(root_url) 
     end     
