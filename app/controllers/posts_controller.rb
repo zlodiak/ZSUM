@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = Post.find_by(id: params[:id])
-    @post.increment!(:views)
+    @post.increment!(:views) if signed_and_not_self?(@user)
   end
 
   def new
