@@ -1,4 +1,4 @@
-<%  if  @user.errors.any? %>
+<% if @user.errors.any? %>
   <div  id="error_explanation">
     <div  class="alert  alert-danger">Форма содержит <%= pluralize(@user.errors.count, "error")  %>.</div>
 
@@ -8,4 +8,4 @@
       <%  end %>
     </ul>
   </div>
-<%  end %>
+<% end %>

@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])    
-    @posts = @user.posts.paginate(page: params[:page], :per_page => 7)
+    @posts = @user.posts.paginate(page: params[:page], :per_page => 7).order(updated_at: :DESC)
   end
 
   def show
@@ -25,12 +25,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @post = Post.new(post_params)     
-    
-    if  @post.save
+    # @user = User.find(params[:user_id])
+
+    @post = current_user.posts.build(post_params)
+    if @post.save
       flash[:success] = t :post_saved
-      redirect_to user_post_path(@user, @post)
+      redirect_to user_post_path(@current_user, @post)
     else
       flash.now[:error] = t :post_not_saved
       render 'new'
