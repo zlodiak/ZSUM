@@ -34,13 +34,12 @@ class PostsController < ApplicationController
 
   def edit
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:id]) 
+    @post = Post.find(params[:id])    
   end
 
   def create
-    # @user = User.find(params[:user_id])
-
     @post = current_user.posts.build(post_params)
+
     if @post.save
       flash[:success] = t :post_saved
       redirect_to user_post_path(@current_user, @post)
@@ -53,6 +52,7 @@ class PostsController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
+
     if  @post.update_attributes(post_params)
       flash[:success] = t :post_updated
       redirect_to user_post_path(@user, @post)
@@ -69,6 +69,14 @@ class PostsController < ApplicationController
   end
 
   private
+    def correct_user
+      @user = User.find(params[:user_id])
+      unless  current_user?(@user) || current_user.admin?
+        flash[:error] = "no permitted operation"
+        redirect_to signin_url
+      end     
+    end  
+
     def set_post
       @post = Post.find(params[:id])
     end
