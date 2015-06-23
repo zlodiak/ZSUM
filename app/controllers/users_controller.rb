@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  #before_action :admin_user, only: :destroy
+  before_action :show_actions, only: [:index, :show]
 
   def index
-    @users = User.paginate(page: params[:page], :per_page => 7)
+    @users = User.paginate(page: params[:page], :per_page => 7)    
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id])    
   end
 
   def new
@@ -68,6 +68,14 @@ class UsersController < ApplicationController
 
   private
 
+    def show_actions
+      if signed_in? && current_user.admin?
+        @show_actions = true
+      else
+        @show_actions = nil
+      end  
+    end
+    
     def user_params
       params.require(:user).permit(:name, :email, :diary_name, :password, :gender_id, :password_confirmation, :phone, :skype, :info, :avatar, :delete_avatar)
     end         
