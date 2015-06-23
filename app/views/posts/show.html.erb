@@ -6,12 +6,12 @@
       <% end %>
 
       <% if @user %><div class="row"><div class="col-xs-10"><% end %>
-        <h2 class="blog-post-title h2"><%= t(:post) %> <%= @post.title%></h2><%= correct_user_post %>
+        <h2 class="blog-post-title h2"><%= t(:post) %> <%= @post.title%></h2>
       <% if @user %></div></div><% end %>
     </div>
 
     <div class="col-xs-2">
-      <% if signed_in? && correct_user_post %>
+      <% if @show_actions_own_post %>
         <%= link_to '', user_post_path(@user, @post), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
         <%= link_to '', edit_user_post_path(@user, @post), class: 'glyphicon glyphicon-edit pull-right' %>
       <% end %>

@@ -2,17 +2,29 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   before_action :signed_in_user, only: [:edit, :update, :destroy, :new, :create]
-  before_action :correct_user_post, only: [:edit, :update, :destroy, :new, :create]
+  before_action :correct_user, only: [:edit, :update, :destroy, :new, :create]
 
   def index
     @user = User.find(params[:user_id])    
     @posts = @user.posts.paginate(page: params[:page], :per_page => 7).order(updated_at: :DESC)
+
+    if signed_in? && current_user?(@user) || signed_in? && current_user.admin?
+      @show_actions_own_posts = true
+    else
+      @show_actions_own_posts = nil
+    end      
   end
 
   def show
     @user = User.find(params[:user_id])
     @post = Post.find_by(id: params[:id])
     @post.increment!(:views) if signed_and_not_self?(@user)
+
+    if signed_in? && current_user?(@user) && @post.user_id == current_user.id || signed_in? && current_user.admin?
+      @show_actions_own_post = true
+    else
+      @show_actions_own_post = nil
+    end     
   end
 
   def new
@@ -57,12 +69,10 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body)
     end
