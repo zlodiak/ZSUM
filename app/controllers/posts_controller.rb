@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @post = Post.find_by(id: params[:id])
+
     @post.increment!(:views) if signed_and_not_self?(@user)
 
     if signed_in? && current_user?(@user) && @post.user_id == current_user.id || signed_in? && current_user.admin?

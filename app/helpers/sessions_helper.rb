@@ -43,7 +43,7 @@ module SessionsHelper
   def admin_user
     unless current_user.admin?
       flash[:error] = "no permitted operation"
-      redirect_to(root_url) 
+      redirect_to signin_url 
     end
   end  
   
@@ -51,20 +51,7 @@ module SessionsHelper
     @user = User.find(params[:id])
     unless  current_user?(@user) || current_user.admin?
       flash[:error] = "no permitted operation"
-      redirect_to(root_url) 
+      redirect_to signin_url
     end     
   end   
-
-
-
-=begin
-  def correct_user_post
-    @user = User.find(params[:user_id])
-    unless  current_user?(@user) || current_user.admin?
-      flash[:error] = "no permitted operation"
-      redirect_to(root_url) 
-    end     
-  end     
-=end
-
 end
