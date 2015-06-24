@@ -1,21 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: one
-  email: MyString@ad.ad
-  password_digest: MyString
-  session_hash: MyString
-  phone: MyString
-  skype: MyString
-  info: MyString
+  name: 'one'
+  email: 'MyString@ad.ad'
+  password_digest: $2a$10$ahyxTDPknqUtQ3JTjvEl9ermbBwsNHnM5aigRJ3136mD.KaB7uFQe
+  remember_token: 436e6049eea64797e0cac23729c8388f56bb5f8d
+  phone: '43535345'
+  skype: 'gggggg'
+  info: 'MyString'
   gender: 1
+  admin: true
 
 two:
-  name: MyString
-  email: MyString
-  password_digest: MyString
-  session_hash: MyString
-  phone: MyString
-  skype: MyString
-  info: MyString
-  gender: 1
+  name: 'ttwo'
+  email: 'ing@ad.ad'
+  password_digest: ahyxTDPknqUtQ3JTjvEl9ermbBwsNHnM5aigRJ3136mD
+  remember_token: 436e6049eea64797e0cac23729c8388f56bb5f8d
+  phone: '5646'
+  skype: 'MyString'
+  info: 'MyString'
+  gender: 2
+  admin: nil
