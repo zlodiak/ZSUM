@@ -1,8 +1,9 @@
 <h4 class="hide"><%= t(:nav_user) %></h4>
 
 <ul class="list-unstyled">
-  <li><%= link_to t(:profile), user_path(current_user.id) %></li>
-  <li><%= link_to t(:edit_profile), edit_user_path(current_user.id) %></li>
   <li><%= link_to t(:my_posts), user_posts_path(current_user.id) %></li>
   <li><%= link_to t(:add_post), new_user_post_path(current_user.id) %></li>
+  <li><%= link_to t(:profile), user_path(current_user.id) %></li>
+  <li><%= link_to t(:edit_profile), edit_user_path(current_user.id) %></li>  
+  <li><%= link_to t(:destroy_profile), user_path(current_user), method: :delete, data: { confirm: 'Are you sure?' } %></li>
 </ul>
