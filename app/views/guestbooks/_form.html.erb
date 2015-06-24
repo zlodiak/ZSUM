@@ -31,19 +31,6 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-2">
-        <%= f.label :email if !signed_in? %>
-      </div>
-      <div class="col-xs-12 col-sm-10">
-        <% if signed_in? %>
-          <%= f.text_field :email, value: current_user.email, class: 'hide' %>
-        <% else %>
-          <%= f.text_field :email %>
-        <% end %>      
-      </div>
-    </div>  
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-2">
         <%= f.label :message %>
       </div>
       <div class="col-xs-12 col-sm-10">

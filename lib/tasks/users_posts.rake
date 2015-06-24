@@ -23,7 +23,7 @@ namespace :db do
     23.times    do  |n|
       name = Faker::Name.name
       email = "ad#{n+1}@ad.ad"
-      diary_name = "Дневник №#{n+1}"
+      diary_name = Faker::Company.catch_phrase 
       gender_id = rand(1..3)
       phone = Faker::PhoneNumber.cell_phone
       skype = Faker::Internet.slug
