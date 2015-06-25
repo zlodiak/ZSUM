@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624191527) do
+ActiveRecord::Schema.define(version: 20150625161023) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "gender_name"
@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20150624191527) do
   end
 
   create_table "guestbooks", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       default: "Anonymous"
     t.text     "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "user_id"
   end
 
