@@ -13,11 +13,11 @@ class GuestbookTest < ActiveSupport::TestCase
 
   test "should save guestbook for guest user" do
     guestbook = Guestbook.new(name: 'qwery', message: 'dfsdfsf gdfgfdghfghfghf ghfgh ')
-    assert guestbook.save
+    assert guestbook.save!
   end
 
   test "should save guestbook for signin user" do
     guestbook = Guestbook.new(message: 'dfsdfsf gdfgfdghfghfghf ghfgh ', user_id: @user)
-    assert guestbook.save
+    assert guestbook.save!
   end  
 end
