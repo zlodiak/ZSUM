@@ -11,7 +11,7 @@ namespace :db do
       User.create!(   name:  'admin',
                       email:  'ad@ad.ad',
                       diary_name:  'Мой админский бложик',
-                      views_diary:  444,
+                      views_diary:  4,
                       gender_id: 2,
                       phone: '234-23423-4',
                       skype: 'ererer',
@@ -20,7 +20,7 @@ namespace :db do
                       password:   'qwerty',
                       password_confirmation:  'qwerty')
 
-    23.times    do  |n|
+    3.times    do  |n|
       name = Faker::Name.name
       email = "ad#{n+1}@ad.ad"
       diary_name = Faker::Company.catch_phrase 
@@ -29,7 +29,7 @@ namespace :db do
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
       password = "qwerty"
-      views_diary = Faker::Number.number(3)
+      views_diary = Faker::Number.number(1)
       User.create!(   name:  name,
                       email:  email,
                       diary_name:  diary_name,
@@ -49,10 +49,10 @@ namespace :db do
     users = User.all
 
     users.each do |user|
-      23.times  do
+      5.times  do
         title = Faker::Lorem.sentence(1)
         body =  Faker::Lorem.paragraph(67)
-        views = rand(1..88)
+        views = rand(1..4)
         user.posts.create!(title:  title, body: body, views: views)  
       end
     end
