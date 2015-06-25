@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :guestbooks
+  resources :recalls
   resources :sessions,  only: [:new,  :create,  :destroy]
 
   resources :users
