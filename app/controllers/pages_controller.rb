@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def popular_diary
     # @diaries = User.paginate(page: params[:page], :per_page => 7).order(views_diary: :DESC)
-    @diaries = User.joins(:posts).group(:user_id).order('SUM(posts.views) DESC')
+    @diaries = User.paginate(page: params[:page], :per_page => 7).joins(:posts).group(:user_id).order('SUM(posts.views) DESC')
   end
 
   def lasts_diary

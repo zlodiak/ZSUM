@@ -20,7 +20,7 @@ namespace :db do
                       password:   'qwerty',
                       password_confirmation:  'qwerty')
 
-    3.times    do  |n|
+    23.times    do  |n|
       name = Faker::Name.name
       email = "ad#{n+1}@ad.ad"
       diary_name = Faker::Company.catch_phrase 
