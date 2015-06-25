@@ -7,16 +7,14 @@ namespace :db do
         message: Faker::Lorem.paragraph(10)
       ) 
 
-=begin
       user = User.find(rand(1..20))
       if user 
         Guestbook.create(
-          user_id: user,
+          name: '',
+          user_id: user.id,
           message: Faker::Lorem.paragraph(10)
         )       
       end 
-=end
-  
     end     
   end
 end
