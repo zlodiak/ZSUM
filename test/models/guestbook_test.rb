@@ -5,7 +5,7 @@ class GuestbookTest < ActiveSupport::TestCase
     @user = User.create(
                           name: 'namee', 
                           email: 'adddd@ad.ad', 
-                          diary_name: 'dnndndnnd', 
+                          diary_name: 'dnndndnппппппnd', 
                           password: 'qwerty', 
                           password_confirmation: 'qwerty'
                         )
