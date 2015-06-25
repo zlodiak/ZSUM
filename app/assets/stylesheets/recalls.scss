@@ -1,34 +1,34 @@
-// Place all the styles related to the guestbooks controller here.
+// Place all the styles related to the recalls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
 
-.guestbook_post{
+.recall_post{
   padding-bottom: 30px;
   overflow: hidden;
 }
 
-  .guestbook_post .name{
+  .recall_post .name{
 
   }
 
-  .guestbook_post .email{
+  .recall_post .email{
     text-align: right;
     font-size: 14px;
     vertical-align: top;
     color: #337AB7;
   }
 
-  .guestbook_post .message{
+  .recall_post .message{
 
   }    
 
 
-.guestbook_form{
+.recall_form{
   padding-bottom: 30px;
 }  
 
-  .guestbook_form textarea{
+  .recall_form textarea{
     height: 200px;
   }

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_many    :guestbooks
+  has_many    :recalls
   has_many    :posts,  dependent:  :destroy
   belongs_to  :gender
   # has_one     :user
