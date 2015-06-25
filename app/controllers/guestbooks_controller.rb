@@ -33,15 +33,6 @@ class GuestbooksController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @guestbook.update(guestbook_params)
-        format.html { redirect_to @guestbook, notice: 'Guestbook was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guestbook }
-      else
-        format.html { render :edit }
-        format.json { render json: @guestbook.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def destroy
@@ -60,6 +51,6 @@ class GuestbooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guestbook_params
-      params.require(:guestbook).permit(:name, :email, :message)
+      params.require(:guestbook).permit(:name, :message)
     end
 end
