@@ -26,5 +26,7 @@ module Zsum
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    # config.active_record.schema_format = :ruby
   end
 end
