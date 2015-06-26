@@ -1,7 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  gender: MyString
+  gender_name: '-'
 
 two:
-  gender: MyString
+  gender_name: 'male'
+
+three:
+  gender_name: 'female'
