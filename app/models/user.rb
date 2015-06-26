@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                                       uniqueness: { case_sensitive: false }
   validates :diary_name, presence: true, uniqueness: { case_sensitive: false }
   validates :password,  length: { minimum:  6 }  
-  validates :name,  presence: true, length: { maximum:  50  }
+  validates :name,  presence: true, length: { maximum:  50  }, uniqueness: { case_sensitive: false }
 
   has_secure_password
 
