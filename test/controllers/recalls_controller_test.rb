@@ -12,36 +12,22 @@ class RecallsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:recalls)
-  end
-=begin
-  test "should get new" do
-    get :new
-    assert_response :success
+    assert_template :index
+    assert_template layout: "layouts/application"        
   end
 
-  test "should create recall" do
-    assert_difference('recall.count') do
-      post :create, recall: {  }
+
+  test "should create recall for guest user" do
+    assert_difference('Recall.count') do
+      post :create, recall: {
+        name: 'fdfdffffff',
+        message: 'fdfdffffffccccccccccc'
+      }
     end
 
-    assert_redirected_to recall_path(assigns(:recall))
+    assert_redirected_to recalls_path
   end
-
-  test "should show recall" do
-    get :show, id: @recall
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @recall
-    assert_response :success
-  end
-
-  test "should update recall" do
-    patch :update, id: @recall, recall: {  }
-    assert_redirected_to recall_path(assigns(:recall))
-  end
-
+=begin
   test "should destroy recall" do
     assert_difference('recall.count', -1) do
       delete :destroy, id: @recall
