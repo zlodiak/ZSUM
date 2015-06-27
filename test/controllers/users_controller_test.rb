@@ -21,6 +21,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:user)
     assert_template :new
     assert_template layout: "layouts/application"   
+    assert_select 'form input', 10
   end
 =begin
 
