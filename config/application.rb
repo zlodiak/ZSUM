@@ -28,5 +28,7 @@ module Zsum
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
     # config.active_record.schema_format = :ruby
+
+    config.log_level = :debug
   end
 end
