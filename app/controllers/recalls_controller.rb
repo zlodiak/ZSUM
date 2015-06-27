@@ -24,7 +24,7 @@ class RecallsController < ApplicationController
       if signed_in?
         @recall.update_attributes(:name => false, :user_id => current_user.id) 
       end
-      redirect_to  recalls_path
+      redirect_to recalls_path
     else
       flash.now[:error] = 'message_not_saved' 
       @recalls = Recall.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
