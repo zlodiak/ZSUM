@@ -27,6 +27,30 @@ class RecallsControllerTest < ActionController::TestCase
 
     assert_redirected_to recalls_path
   end
+
+  test "should name empty valid ok recall for guest user" do
+    assert_difference('Recall.count') do
+      post :create, recall: {
+        name: '',
+        message: 'fdfdffffffccccccccccc'
+      }
+    end
+
+    assert_redirected_to recalls_path
+  end
+
+  test "should message empty valid failed recall for guest user" do
+    assert_no_difference('Recall.count') do
+      post :create, recall: {
+        name: 'fdfdffffffccccccccccc',
+        message: ''
+      }
+    end
+
+    assert_template :index
+    assert_template layout: "layouts/application"   
+  end
+
 =begin
   test "should destroy recall" do
     assert_difference('recall.count', -1) do
