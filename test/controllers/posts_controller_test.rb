@@ -1,17 +1,21 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
-=begin
+  fixtures :users 
+
   setup do
-    @post = posts(:one)
+    @user = users(:one)  
   end
 
   test "should get index" do
-    get :index
+    get :index, :user_id => @user
     assert_response :success
     assert_not_nil assigns(:posts)
+    assert_template :index
+    assert_template layout: "layouts/application"    
+    assert_select '.next_page', 'Next Label'    
   end
-
+=begin
   test "should get new" do
     get :new
     assert_response :success
