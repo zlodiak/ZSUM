@@ -1,10 +1,10 @@
 class Admin::UsersController < ApplicationController
-  before_action :set_admin_user, only: [:show, :edit, :update, :destroy]
+  layout 'adminpanel'
 
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @admin_users = Admin::User.all
+    @users = ::User.paginate(page: params[:page], :per_page => 20)   
   end
 
   # GET /admin/users/1
@@ -14,15 +14,13 @@ class Admin::UsersController < ApplicationController
 
   # GET /admin/users/new
   def new
-    @admin_user = Admin::User.new
+    #@admin_user = Admin::User.new
   end
 
-  # GET /admin/users/1/edit
+
   def edit
   end
 
-  # POST /admin/users
-  # POST /admin/users.json
   def create
     @admin_user = Admin::User.new(admin_user_params)
 
@@ -37,8 +35,7 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /admin/users/1
-  # PATCH/PUT /admin/users/1.json
+
   def update
     respond_to do |format|
       if @admin_user.update(admin_user_params)
@@ -51,24 +48,29 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  # DELETE /admin/users/1
-  # DELETE /admin/users/1.json
   def destroy
-    @admin_user.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
+    @user = ::User.find(params[:id])
+
+    if !@user.admin?
+      @user.destroy
+      flash[:success] = "User deleted."
+    else
+      flash[:error] = "admin_not_delete"
     end
-  end
+
+    redirect_to admin_users_path
+  end 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_admin_user
       @admin_user = Admin::User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+
     def admin_user_params
       params[:admin_user]
     end
+
+
 end
