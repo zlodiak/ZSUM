@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
+    get "admin" => 'users#index'
   end
+
   resources :recalls
   resources :sessions,  only: [:new,  :create,  :destroy]
 
