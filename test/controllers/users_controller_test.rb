@@ -76,7 +76,15 @@ class UsersControllerTest < ActionController::TestCase
   end
 =end  
 
-  test "should route to user" do
-    assert_routing "/users/@user", { controller: "users", action: "show", id: "@user" }
+  test "should route to show user" do
+    assert_generates "/users/@user", controller: 'users', action: 'show', id: "@user"  # определенный набор опций создает конкретный путь
   end
+
+  test "should route to show users" do
+    assert_generates "/users", controller: 'users', action: 'index'  
+  end  
+
+  test "should route to signup page" do
+    assert_generates "/users/new", controller: 'users', action: 'new'  
+  end    
 end

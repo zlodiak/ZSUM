@@ -60,4 +60,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 =end
 
+  #test "should route to post show" do
+  #  assert_generates "/users/@user.id/posts/@post.id", controller: 'posts', action: 'show', user_id: @user, id: @post  
+  #end   
+
 end
