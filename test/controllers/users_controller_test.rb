@@ -75,4 +75,8 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to users_url
   end
 =end  
+
+  test "should route to user" do
+    assert_routing "/users/@user", { controller: "users", action: "show", id: "@user" }
+  end
 end
