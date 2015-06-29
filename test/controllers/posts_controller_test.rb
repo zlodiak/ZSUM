@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionController::TestCase
-  fixtures :users 
+  fixtures :users, :posts
 
   setup do
     @user = users(:one)  
+    @post = posts(:five)
   end
 
   test "should get index" do
@@ -17,8 +18,12 @@ class PostsControllerTest < ActionController::TestCase
   end
 =begin
   test "should get new" do
-    get :new
+    get :new, :user_id => @user
     assert_response :success
+    assert_template :new
+    assert_template layout: "layouts/application"    
+    assert_select 'form', true 
+    assert_select 'form input', 2 
   end
 
   test "should create post" do
@@ -28,12 +33,14 @@ class PostsControllerTest < ActionController::TestCase
 
     assert_redirected_to post_path(assigns(:post))
   end
+=end
+
 
   test "should show post" do
-    get :show, id: @post
+    get :show, :user_id => @user, :id => @post
     assert_response :success
   end
-
+=begin
   test "should get edit" do
     get :edit, id: @post
     assert_response :success
