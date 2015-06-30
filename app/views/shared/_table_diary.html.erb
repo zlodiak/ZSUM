@@ -1,16 +1,16 @@
 <div class="common_table">
-  <div class="row">
-    <div class="col-xs-6 th">diary_name</div>
-    <div class="col-xs-3 th">created_date</div>
-    <div class="col-xs-3 th">updated_date</div>
+  <div class="row headers_table">
+    <div class="col-sm-6 th">diary_name</div>
+    <div class="col-sm-3 th">created_date</div>
+    <div class="col-sm-3 th">updated_date</div>
   </div>
 
   <% @diaries.each do |diary| %>
     <div class="row">
       <%= link_to user_posts_url(diary.id) do %>
-        <div class="col-xs-6"><%= diary.diary_name %></div>
-        <div class="col-xs-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
-        <div class="col-xs-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
+        <div class="col-xs-12 col-sm-6"><%= diary.diary_name %></div>
+        <div class="col-xs-6 col-sm-3"><%= l diary.created_at, format: "%e %b %Y" %></div>
+        <div class="col-xs-6 col-sm-3"><%= l diary.updated_at, format: "%e %b %Y" %></div>
       <% end %>  
     </div>
   <% end %>

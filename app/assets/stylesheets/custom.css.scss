@@ -61,6 +61,11 @@ h3, .h3{
   padding-bottom: 30px;
 }
 
+
+.userpanel .common_table .headers_table{
+  display: none;
+}
+
 /*
  * Override Bootstrap's default container.
  */
@@ -134,8 +139,8 @@ h3, .h3{
 .blog-title {
   margin-top: 10px;
   margin-bottom: 0;
-  font-size: 60px;
-  font-weight: normal;
+  font-size: 24px;
+  font-weight: bold;
 }
 .blog-description {
   font-size: 20px;
