@@ -39,8 +39,19 @@ h3, .h3{
 }
 
 
+.content_image{
+  float: left;
+  display: block;
+  padding: 15px 7px 7px 0;
+}
 
+.blog-main .content_link:hover{
+  text-decoration: none;
+}
 
+.blog-main .content_link{
+  text-decoration: underline;
+}
 
 .hide{
   display: none !important;
