@@ -1,4 +1,7 @@
 class Admin::UsersController < ApplicationController
+  before_action :signed_in_user
+  before_action :admin_user
+
   layout 'adminpanel'
 
   # GET /admin/users
@@ -7,44 +10,33 @@ class Admin::UsersController < ApplicationController
     @users = ::User.paginate(page: params[:page], :per_page => 20)   
   end
 
-  # GET /admin/users/1
-  # GET /admin/users/1.json
-  def show
-  end
-
-  # GET /admin/users/new
-  def new
-    #@admin_user = Admin::User.new
-  end
-
-
   def edit
+    @user = ::User.find(params[:id]) 
   end
-
-  def create
-    @admin_user = Admin::User.new(admin_user_params)
-
-    respond_to do |format|
-      if @admin_user.save
-        format.html { redirect_to @admin_user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_user }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 
   def update
-    respond_to do |format|
-      if @admin_user.update(admin_user_params)
-        format.html { redirect_to @admin_user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin_user }
-      else
-        format.html { render :edit }
-        format.json { render json: @admin_user.errors, status: :unprocessable_entity }
+    @user = ::User.find(params[:id])   
+
+    logger.debug '===============================' 
+    #logger.debug  params[:created_at][:day]
+    #logger.debug  params[:created_at][:month]
+    #logger.debug  params[:created_at][:year]
+    #logger.debug  Time.parse(params[:created_at][:year] + params[:created_at][:month] + params[:created_at][:day]).utc
+    
+    if @user.update_attributes(user_params)
+      if params[:delete_avatar]
+        @user.update_attributes(
+          avatar_file_name: nil, 
+          avatar_content_type: nil, 
+          avatar_file_size: nil
+        )
       end
+
+      flash[:success] = "Profile  updated"
+      redirect_to admin_users_path
+    else
+      flash[:error] = "Profile  updated failed"
+      render  'edit'
     end
   end
 
@@ -68,9 +60,11 @@ class Admin::UsersController < ApplicationController
     end
 
 
-    def admin_user_params
-      params[:admin_user]
-    end
+    def user_params
+      params.require(:user).permit( :name, :email, :diary_name, :password, :gender_id, 
+                                    :password_confirmation, :phone, :skype, :info, 
+                                    :avatar, :delete_avatar, :admin)
+    end  
 
 
 end

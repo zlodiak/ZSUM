@@ -65,9 +65,7 @@ h3, .h3{
  * Masthead for nav
  */
 
-.adminpanel .blog-masthead{
-  background: red;
-}
+
 
 .blog-masthead {
   background-color: #428bca;
@@ -550,3 +548,72 @@ form{
 .blog-main a.glyphicon{
   color: red;
 }
+
+
+
+
+/* adminpanel */
+
+.adminpanel{
+
+
+}
+
+  .adminpanel .blog-main{
+    font: 12px verdana, arial, helvetica, sans-serif;
+    color: #000;
+  }
+
+
+
+  .adminpanel .blog-main{
+
+  }  
+
+    .adminpanel .blog-main a.name{
+      color: #000;
+    }
+
+  .adminpanel .blog-main .row{
+    padding-bottom: 10px;
+
+  }  
+
+  .adminpanel .pagination .next_page:before,
+  .adminpanel .pagination .previous_page:before{
+    top: -2px;
+  }
+
+  .adminpanel .blog-main .pagination em,
+  .adminpanel .blog-main .pagination a{
+    color: red;
+    border-color: red;
+  }
+
+
+
+  .adminpanel .blog-masthead{
+    background: red;
+  }
+
+  .adminpanel .header .value,
+  .adminpanel .header .label,
+  .adminpanel .header{
+    color: #000;
+    font: bold 14px verdana, arial, helvetica, sans-serif;
+
+    padding: 0;
+    margin: 0;
+  }   
+
+
+  .adminpanel .header{
+    padding: 20px 0 10px;
+    overflow: hidden;
+
+    text-align: center;
+  }
+
+    .adminpanel .header > div{
+      padding-bottom: 10px;
+    }

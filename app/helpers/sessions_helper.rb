@@ -42,7 +42,7 @@ module SessionsHelper
 
   def admin_user
     unless current_user.admin?
-      flash[:error] = "no permitted operation"
+      flash[:error] = "you are not admin"
       redirect_to signin_url 
     end
   end  

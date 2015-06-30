@@ -1,17 +1,141 @@
-<%= form_for(@admin_user) do |f| %>
-  <% if @admin_user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_user.errors.count, "error") %> prohibited this admin_user from being saved:</h2>
-
-      <ul>
-      <% @admin_user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @user, url: admin_user_path(@user), method: :patch do |f| %>
+  <div class="row">
+    <div class="col-xs-12">
+      <%#= render  'shared/error_messages' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :name %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :email  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :email  %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :diary_name  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :diary_name  %>   
+    </div>
+  </div>   
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :gender  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.select :gender_id,  User::GENDER_TYPES %>
+    </div>
+  </div>    
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :phone  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :phone  %>  
+    </div> 
+  </div> 
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :skype  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_field  :skype  %>   
+    </div>
+  </div> 
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :info  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.text_area  :info, cols: 30, rows: 10 %>   
+    </div>
+  </div>   
+
+  <div class="row">
+    <% if @user.avatar_file_name %>
+      <div class="col-xs-1 col-sm-offset-2 image_loaded">
+        <%= link_to @user.avatar.url, class: 'fancybox' do %>
+          <%= image_tag(@user.avatar.url(:thumb) , class: "thumb_icon thumb_icon_h2 pull-left", alt: '') %>
+        <% end %>
+      </div>
+      <div class="col-xs-9 image_delete">
+        <%= check_box_tag(:delete_avatar) %>
+        <%= label_tag(:delete_avatar, "Удалить аватар") %>
+      </div>
+    <% end %>
+
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :avatar %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.file_field  :avatar %>
+    </div>
+  </div>  
+
+  <div class="row hide">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :created_date  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= select_date @user.created_at, prefix: :created_at %> 
+    </div>
+  </div>     
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :admin  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.check_box  :admin %>   
+    </div>
+  </div>       
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :password %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.password_field  :password %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.label :password_confirmation, "Confirmation"  %>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= f.password_field  :password_confirmation  %>
+    </div>
+  </div>
+
+  <div class="row actions">
+    <div class="col-xs-12 col-sm-2">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>
+
+
+
+
+
+
+
+

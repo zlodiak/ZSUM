@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
-    get "admin" => 'users#index'
   end
 
   resources :recalls
@@ -23,11 +22,14 @@ Rails.application.routes.draw do
   get 'pages/popular_posts'
   get 'pages/last_posts'
   get 'pages/my_last_posts'
+  get "admin" => 'admin/users#index'
+
 
   # match '/users', to: 'users#index', via:  'get'
   match '/signup', to: 'users#new', via:  'get'
   match '/signin', to: 'sessions#new', via:  'get'
   match '/signout', to: 'sessions#destroy', via:  'delete'  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
