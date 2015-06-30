@@ -38,7 +38,7 @@
     </div>
 
     <div class="col-xs-12 body">
-      <%= @post.body %>
+      <%= urls_to_links(urls_to_images(@post.body)) %>
     </div>
   </article>      
 </div>
