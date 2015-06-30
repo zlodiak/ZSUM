@@ -1,36 +1,3 @@
 // Place all the styles related to the admin/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.adminpanel{
-
-
-}
-
-  .adminpanel .blog-main{
-    font: 12px helvetica, arial, sans-serif;
-    color: #000;
-  }
-
-
-
-  .adminpanel .blog-main{
-
-  }  
-
-  .adminpanel .blog-main .row{
-    padding-bottom: 10px;
-
-  }  
-
-  .adminpanel .pagination .next_page:before,
-  .adminpanel .pagination .previous_page:before{
-    top: -2px;
-  }
-
-  .adminpanel .blog-main .pagination em,
-  .adminpanel .blog-main .pagination a{
-    color: red;
-    border-color: red;
-  }
-

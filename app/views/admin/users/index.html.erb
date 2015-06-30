@@ -13,7 +13,7 @@
   <% @users.each do |user| %>
     <div class="row">
       <div class="col-xs-4">
-        <%= link_to user_path(user.id) do %>
+        <%= link_to user_path(user.id), class: 'name' do %>
           <%= user.name %>
         <% end %>    
       </div>
@@ -36,7 +36,7 @@
 
       <div class="col-xs-1">
         <%= link_to '', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
-        <%= link_to '', edit_user_path(user), class: 'glyphicon glyphicon-edit pull-right' %>
+        <%= link_to '', edit_admin_user_path(user), class: 'glyphicon glyphicon-edit pull-right' %>
       </div>
     </div>
   <% end %> 
