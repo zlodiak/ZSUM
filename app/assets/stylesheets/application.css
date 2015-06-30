@@ -20,3 +20,64 @@
   background: rgb(195, 190, 190);
   background: #d4d4d4;
 }
+
+
+/* media for userpanel */
+@media (min-width: 768px) {
+  body{
+    background: yellow;
+  }
+
+  .blog-title{
+    font-size: 60px;  
+    font-weight: normal;
+  }  
+}
+
+@media (min-width: 992px) {
+  body{
+    background: lime;
+  }
+}
+
+@media (min-width: 1200px) {
+  body{
+    background: red;
+  }
+}
+
+
+
+
+
+
+
+/* media for adminpanel */
+@media (min-width: 768px) {
+  .userpanel .common_table .headers_table{
+    display: block;
+  }
+
+  .adminpanel .common_table .headers_table{
+    display: block;
+  } 
+
+  body{
+    background: yellow;
+  }
+}
+
+@media (min-width: 992px) {
+  body{
+    background: lime;
+  }
+}
+
+@media (min-width: 1200px) {
+  body{
+    background: red;
+  }
+}
+
+
+  

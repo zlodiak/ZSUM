@@ -1,40 +1,40 @@
 <h2 class="blog-post-title"><%= t(:users) %></h2>
 
 <div class="common_table">
-  <div class="row">
-    <div class="col-xs-4 th">user_name</div>
-    <div class="col-xs-2 th">email</div>
-    <div class="col-xs-2 th">create_date</div>
-    <div class="col-xs-2 th">update_date</div>
-    <div class="col-xs-1 th">admin</div>
-    <div class="col-xs-1 th">actions</div>
+  <div class="row headers_table">
+    <div class="col-sm-4 th">user_name</div>
+    <div class="col-sm-2 th">email</div>
+    <div class="col-sm-2 th">create_date</div>
+    <div class="col-sm-2 th">update_date</div>
+    <div class="col-sm-1 th">admin</div>
+    <div class="col-sm-1 th">actions</div>
   </div>
 
   <% @users.each do |user| %>
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-12 col-sm-4">
         <%= link_to user_path(user.id), class: 'name' do %>
           <%= user.name %>
         <% end %>    
       </div>
 
-      <div class="col-xs-2">
+      <div class="col-xs-4 col-sm-2">
         <%= mail_to user.email, user.email %>
       </div>
 
-      <div class="col-xs-2">
+      <div class="col-xs-4 col-sm-2">
         <%= l user.created_at, format: "%Y-%m-%d, %H:%M" %>
       </div>
 
-      <div class="col-xs-2">
+      <div class="col-xs-4 col-sm-2">
         <%= l user.updated_at, format: "%Y-%m-%d, %H:%M" %>
       </div>            
 
-      <div class="col-xs-1">
+      <div class="col-xs-12 col-sm-1">
         <%= user.admin? %>
       </div>            
 
-      <div class="col-xs-1">
+      <div class="col-xs-6 col-sm-1">
         <%= link_to '', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
         <%= link_to '', edit_admin_user_path(user), class: 'glyphicon glyphicon-edit pull-right' %>
       </div>
