@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625184523) do
+ActiveRecord::Schema.define(version: 20150630093337) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "gender_name"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20150625184523) do
     t.string   "skype"
     t.string   "info"
     t.integer  "gender_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "diary_name"
-    t.boolean  "admin",               default: false
+    t.boolean  "admin"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
