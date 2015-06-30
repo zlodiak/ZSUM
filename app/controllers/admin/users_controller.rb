@@ -4,10 +4,8 @@ class Admin::UsersController < ApplicationController
 
   layout 'adminpanel'
 
-  # GET /admin/users
-  # GET /admin/users.json
   def index
-    @users = ::User.paginate(page: params[:page], :per_page => 20)   
+    @users = ::User.paginate(page: params[:page], :per_page => 10)       
   end
 
   def edit
@@ -16,12 +14,6 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = ::User.find(params[:id])   
-
-    logger.debug '===============================' 
-    #logger.debug  params[:created_at][:day]
-    #logger.debug  params[:created_at][:month]
-    #logger.debug  params[:created_at][:year]
-    #logger.debug  Time.parse(params[:created_at][:year] + params[:created_at][:month] + params[:created_at][:day]).utc
     
     if @user.update_attributes(user_params)
       if params[:delete_avatar]
