@@ -396,6 +396,42 @@ form label,
   margin-right: 10px;
 }
 
+.blog-masthead .auth_area .to_admininterface:before{
+  content: '>>>>>';
+
+}
+
+.blog-masthead .auth_area .to_admininterface{
+  margin-left: 8px;  
+}
+
+.adminpanel .blog-masthead .auth_area .to_admininterface{
+  display: none;
+
+}
+
+
+
+
+.blog-masthead .auth_area .to_userinterface:before{
+  content: '<<<<<';
+
+}
+
+.blog-masthead .auth_area .to_userinterface{
+  margin-left: 8px;
+
+}
+
+.adminpanel .blog-masthead .auth_area .to_userinterface{
+  display: inline-block;
+}
+
+.blog-masthead .auth_area .to_userinterface{
+  display: none;
+  margin-left: 8px;
+}
+
 
 /* form */
 form{

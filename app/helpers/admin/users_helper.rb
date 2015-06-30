@@ -12,6 +12,10 @@ module Admin::UsersHelper
   end    
 
   def get_summary_admins
-    @admins_count = ::User.count(admin: true)
+    @admins_count = ::User.where(:admin => true).count
   end  
+
+  def get_summary_views
+    @admins_count = ::Post.all.sum(:views)
+  end      
 end
