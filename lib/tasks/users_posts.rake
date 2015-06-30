@@ -11,7 +11,6 @@ namespace :db do
       User.create!(   name:  'admin',
                       email:  'ad@ad.ad',
                       diary_name:  'Мой админский бложик',
-                      views_diary:  4,
                       gender_id: 2,
                       phone: '234-23423-4',
                       skype: 'ererer',
@@ -29,16 +28,14 @@ namespace :db do
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
       password = "qwerty"
-      views_diary = Faker::Number.number(1)
       User.create!(   name:  name,
                       email:  email,
                       diary_name:  diary_name,
-                      views_diary:  views_diary,
                       gender_id: gender_id,
                       phone: phone,
                       skype: skype,
                       info: info,
-                      admin: false,
+                      admin: nil,
                       password:   password,
                       password_confirmation:  password)
     end
