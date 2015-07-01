@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'pages/popular_posts'
   get 'pages/last_posts'
   get 'pages/my_last_posts'
+  get 'pages/search'
   get "admin" => 'admin/users#index'
 
 
