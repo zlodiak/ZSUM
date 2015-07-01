@@ -48,12 +48,12 @@
   <%= form_tag(admin_users_path, method: 'get') do %>
     <div class="col-xs-12 col-sm-3">
       <%= label_tag 'fld_order', t(:order_by), class: 'lbl_order' %>
-      <%= select_tag "fld_order", options_for_select([ "Ascending", "Descending" ], "Descending") %>
+      <%= select_tag "fld_order", options_for_select([ "Ascending", "Descending" ], order) %>
     </div>
 
     <div class="col-xs-12 col-sm-3">
       <%= label_tag 'fld_quantity', t(:by_quantity), class: 'lbl_quantity' %>
-      <%= select_tag "fld_quantity", options_for_select([ "5", "10", "50", "100" ], "10") %>
+      <%= select_tag "fld_quantity", options_for_select([ "5", "10", "50", "100" ], quantity) %>
     </div>
 
     <div class="col-xs-12 col-sm-3">
