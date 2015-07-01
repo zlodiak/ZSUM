@@ -6,6 +6,9 @@ class Admin::UsersController < ApplicationController
 
   def index
     @users = ::User.paginate(page: params[:page], :per_page => 10)       
+    logger.debug '==================='
+    logger.debug params[:fld_order]
+    logger.debug params[:fld_quantity]
   end
 
   def edit
@@ -55,7 +58,7 @@ class Admin::UsersController < ApplicationController
     def user_params
       params.require(:user).permit( :name, :email, :diary_name, :password, :gender_id, 
                                     :password_confirmation, :phone, :skype, :info, 
-                                    :avatar, :delete_avatar, :admin)
+                                    :avatar, :delete_avatar, :admin, :fld_order, :fld_quantity)
     end  
 
 
