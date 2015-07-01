@@ -5,10 +5,16 @@ class Admin::UsersController < ApplicationController
   layout 'adminpanel'
 
   def index
-    @users = ::User.paginate(page: params[:page], :per_page => 10)       
-    logger.debug '==================='
-    logger.debug params[:fld_order]
-    logger.debug params[:fld_quantity]
+    quantity = params[:fld_quantity] || 10
+    order = params[:fld_order] || 'Ascending'
+
+    if params[:fld_order] == 'Descending'
+      @users = ::User.paginate(page: params[:page], :per_page => quantity).order(name: :DESC)
+    else
+      @users = ::User.paginate(page: params[:page], :per_page => quantity).order(name: :ASC)
+    end
+
+    render :index, :locals => {:quantity => quantity, :order => order}
   end
 
   def edit
