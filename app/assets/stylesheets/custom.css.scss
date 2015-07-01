@@ -69,6 +69,8 @@ h3, .h3{
   display: none;
 }
 
+
+/* sort_by */
 .sort_by{
   padding-top: 20px;
 }
@@ -77,6 +79,23 @@ h3, .h3{
   min-width: 70px;
 }
 
+
+/* search_by */
+.search_by{
+
+}
+
+  .search_by .btn_submit{
+
+  }
+
+  .search_by input{
+    width: 100%;
+  }
+
+    .search_by form > div{
+
+    }
 
 /*
  * Override Bootstrap's default container.
@@ -476,6 +495,7 @@ form{
     vertical-align: baseline;
   }
 
+  form input[type='search'],
   form input[type='password'],
   form input[type='email'],
   form input[type='text']{
