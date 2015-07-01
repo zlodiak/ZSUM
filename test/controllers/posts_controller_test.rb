@@ -14,7 +14,6 @@ class PostsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:posts)
     assert_template :index
     assert_template layout: "layouts/application"    
-    assert_select '.next_page', 'Next Label'    
   end
 =begin
   test "should get new" do
@@ -34,7 +33,11 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to post_path(assigns(:post))
   end
 =end
-
+  test "should no increment views fir guest user" do
+    assert_no_difference('@post.views') do
+      get :show, :user_id => @user, :id => @post
+    end
+  end
 
   test "should show post" do
     get :show, :user_id => @user, :id => @post
