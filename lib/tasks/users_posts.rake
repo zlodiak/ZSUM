@@ -1,7 +1,7 @@
 namespace :db do
   desc    "create genders"
   task    populate_genders:   :environment    do
-    Gender.create!(gender_name: '-')
+    Gender.create!(gender_name: 'unknown')
     Gender.create!(gender_name: 'male')
     Gender.create!(gender_name: 'female')
   end

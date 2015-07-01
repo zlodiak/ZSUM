@@ -56,3 +56,8 @@ ru:
   post: 'Запись:'
   edit_post: 'Редактирование записи:'
   destroy_profile: 'Удалить профиль'
+  activerecord:
+    attributes:
+      user/gender:
+        female: "Жен"
+        male: "Муж"  
