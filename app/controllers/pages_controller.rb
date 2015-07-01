@@ -30,7 +30,12 @@ class PagesController < ApplicationController
   end   
 
   def search
-    
+    #q = "%#{params[:fld_phrase]}%"
+
+    #if q
+    #  sql = Post.where("title like ? or body like ?", q, q).to_sql   
+    #  @posts = ActiveRecord::Base.connection.execute(sql) 
+    #end
   end     
 
   def my_last_posts
@@ -49,4 +54,8 @@ class PagesController < ApplicationController
     redirect_to root_url,  :flash => { :success => t('lang_changed') }
   end   
 
+  private
+    def user_params
+      params.permit(:fld_phrase)
+    end         
 end
