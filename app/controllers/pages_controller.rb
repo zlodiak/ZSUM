@@ -30,12 +30,15 @@ class PagesController < ApplicationController
   end   
 
   def search
-    #q = "%#{params[:fld_phrase]}%"
+    p '2323232323'
+    logger.debug '--------------5555555555555555555555--' + params[:search]
 
-    #if q
-    #  sql = Post.where("title like ? or body like ?", q, q).to_sql   
-    #  @posts = ActiveRecord::Base.connection.execute(sql) 
-    #end
+    if params[:search]
+      @posts = Post.where("title like ?", "%#{params[:search]}%")
+      # @posts = Post.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
+    else
+      @posts = Post.all
+    end    
   end     
 
   def my_last_posts
@@ -56,6 +59,6 @@ class PagesController < ApplicationController
 
   private
     def user_params
-      params.permit(:fld_phrase)
-    end         
+      params.permit(:search)
+    end           
 end
