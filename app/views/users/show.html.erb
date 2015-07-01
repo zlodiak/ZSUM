@@ -22,7 +22,7 @@
     <div class="label_table col-xs-4 col-sm-2">Gender:</div>
     <div class="info_table col-xs-8 col-sm-10">
       <% if @user.gender_id %>
-        <%= @user.gender.gender_name %>
+        <%= t(@user.gender.gender_name) %>
       <% end %>
     </div>
   </div>    
