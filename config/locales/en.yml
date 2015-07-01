@@ -25,6 +25,7 @@ en:
   email: 'Email'
   password: 'Password'
   sign_out: 'Logout'
+  unknown: "-"
   male: 'Male'  
   female: 'Female'  
   sergey_kalinin: 'Sergey Kalinin'
@@ -56,8 +57,3 @@ en:
   post: 'Post:'
   edit_post: 'Editing post:'
   destroy_profile: 'Delete profile'
-  activerecord:
-    attributes:
-      user/gender:
-        female: "Female111"
-        male: "Male111"
