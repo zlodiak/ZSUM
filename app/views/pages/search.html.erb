@@ -4,17 +4,23 @@
   <%= form_tag(pages_search_path, method: 'get') do %>
     <div class="col-xs-12 col-sm-9">
       <%#= label_tag 'fld_phrase', t(:order_by_phrase), class: 'lbl_phrase' %>
-      <%= search_field_tag "fld_phrase" %>
+      <%= text_field_tag :search, params[:search] %>
     </div>
 
     <div class="col-xs-12 col-sm-3">
-      <%= submit_tag "Search", class: "btn_submit" %>
+      <%= submit_tag "Search", :name => nil, class: "btn_submit" %>
     </div>
   <% end %>
 </div>
 
 <div class="row search_results">
   <div class="col-xs-12">
-
+    <% if @posts %>
+      <% @posts.each do |post| %>
+        <%= post.title %>
+      <% end %>
+    <% else %>
+      ffff
+    <% end %>
   </div>
 </div>
