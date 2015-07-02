@@ -30,14 +30,10 @@ class PagesController < ApplicationController
   end   
 
   def search
-    p '2323232323'
-    logger.debug '--------------5555555555555555555555--' + params[:search]
-
-    if params[:search]
-      @posts = Post.where("title like ?", "%#{params[:search]}%")
-      # @posts = Post.find(:all, :conditions => ['title LIKE ?', "%#{params[:search]}%"])
+    if params[:search] && params[:search] != ''
+      @posts = Post.paginate(page: params[:page], :per_page => 7).where("body like ? or title like ?", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-      @posts = Post.all
+      @posts = nil
     end    
   end     
 
