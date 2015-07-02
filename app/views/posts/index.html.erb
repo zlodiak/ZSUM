@@ -10,39 +10,5 @@
   </div>
 </div>
 
-<div class="row">
-  <% @posts.each do |post| %>
-    <article class="article blog_teaser blog_post">
-      <h3 class="col-xs-10 h3"><%= post.title %></h3>
+<%= render 'shared/table_posts' %>
 
-      <div class="col-xs-2">
-        <% if @show_actions_own_posts %>
-          <%= link_to '', user_post_path(@user, post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
-          <%= link_to '', edit_user_post_path(@user, post.id), class: 'glyphicon glyphicon-edit pull-right' %>
-        <% end %>
-      </div>
-
-      <div class="col-xs-12 meta">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-12">
-            <span class="create_date">Дата создания: <%= l post.created_at, format: "%e %b %Y, %H:%I" %></span>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <span class="author">Автор: <%= link_to @user.name, user_path(@user) %></span>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <span class="views">Просмотров: <%= post.views %></span>
-          </div>
-        </div>
-      </div>      
-
-      <div class="col-xs-12 body">
-        <%= link_to truncate(post.body, length: 200), user_post_path(@user, post.id) %>
-      </div>
-    </article> 
-  <% end %>      
-</div>
-
-<%= will_paginate @posts, :previous_label => '', :next_label => '' %>

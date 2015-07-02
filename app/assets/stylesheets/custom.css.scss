@@ -82,8 +82,13 @@ h3, .h3{
 
 /* search_by */
 .search_by{
-
+  padding-bottom: 50px;
 }
+
+  .search_by .fld_phrase{
+    position: relative;
+    top: 5px;
+  }
 
   .search_by .btn_submit{
 
