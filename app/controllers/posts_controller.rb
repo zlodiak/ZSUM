@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     end     
   end
 
-  def new
+  def new    
     @user = User.find(params[:user_id])
     @post = Post.new
   end
@@ -39,6 +39,18 @@ class PostsController < ApplicationController
   end
 
   def create
+    @tagnames = params[:tagnames].split(/[, \.?!]+/) 
+    p @tagnames
+    @tagnames.each do |tagname|
+      tagname_exist = Tag.find_by tagname: tagname
+      if !tagname_exist
+        Tag.create(tagname: tagname)
+      end
+    end
+    p '------------------'
+
+
+
     @post = current_user.posts.build(post_params)
 
     if @post.save
@@ -83,6 +95,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :tagnames)
     end
 end
