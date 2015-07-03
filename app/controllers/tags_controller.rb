@@ -1,28 +1,21 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
-  # GET /tags
-  # GET /tags.json
   def index
-    @tags = Tag.all
+    @tags = Tag.all.order(tagname: :ASC)
   end
 
-  # GET /tags/1
-  # GET /tags/1.json
   def show
+    @posts = @tag.posts.paginate(page: params[:page], :per_page => 10)
   end
 
-  # GET /tags/new
   def new
     @tag = Tag.new
   end
 
-  # GET /tags/1/edit
   def edit
   end
 
-  # POST /tags
-  # POST /tags.json
   def create
     @tag = Tag.new(tag_params)
 
@@ -69,6 +62,6 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params[:tag]
+       params.require(:tag).permit(:tag)
     end
 end

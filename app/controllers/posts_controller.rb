@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])    
-    @posts = @user.posts.paginate(page: params[:page], :per_page => 7).order(updated_at: :DESC)
+    @posts = @user.posts.paginate(page: params[:page], :per_page => 10).order(updated_at: :DESC)
 
     #if signed_in? && current_user?(@user) || signed_in? && current_user.admin?
     #  @show_actions_own_posts = true
