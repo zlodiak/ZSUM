@@ -10,10 +10,11 @@ namespace :db do
   end
 
   desc "create posts_tags"
-  task populate_posts_tags:   :environment    do    
-    posts = Post.all
-    posts.each do |post|
+  task populate_posts_tags:   :environment    do   
+    tags = Tag.all 
+    600.times do
       tag = Tag.find(rand(1..10))
+      post = Post.find(rand(1..360))
       tag.posts << post
     end
 
