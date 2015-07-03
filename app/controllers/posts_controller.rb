@@ -38,12 +38,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])    
   end
 
-  def create
-    add_new_tags
-
+  def create  
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      add_new_tags(@post.id)
       flash[:success] = t :post_saved
       redirect_to user_post_path(@current_user, @post)
     else
@@ -84,11 +83,14 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
 
-    def add_new_tags
+    def add_new_tags(post_id)
       tagnames = params[:tagnames].split(/[, \.?!]+/) 
       tagnames.each do |tagname|
         tagname_exist = Tag.find_by tagname: tagname.downcase
         Tag.create(tagname: tagname.downcase) if !tagname_exist
+        # linked post id and tag id  through linked table
+        p '=============='
+        p post_id
       end
     end
 
