@@ -1,3 +1,31 @@
 // Place all the styles related to the tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tags_list{
+
+}
+
+  .tags_list .tag_cell{
+
+  }
+
+    .tags_list .tag_cell .title{
+      width: 100px;
+      display: inline-block;
+    }
+
+    .tags_list .tag_cell .count:before{
+      content: 'x';
+
+      font: 10px arial, sans-serif;
+
+      position: absolute;
+      top: 7px;
+      left: -12px;
+    }
+
+    .tags_list .tag_cell .count{
+      display: inline-block;
+      position: relative;
+    }    

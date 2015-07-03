@@ -1,25 +1,10 @@
-<p id="notice"><%= notice %></p>
+<h2 class="blog-post-title"><%= t :tags %></h2>
 
-<h1>Listing Tags</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tags.each do |tag| %>
-      <tr>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tag', new_tag_path %>
+<div class="tags_list row">
+  <% @tags.each do |tag| %>
+    <div class="col-xs-6 col-sm-4 tag_cell">
+      <span class="title"><%= link_to tag.tagname, tag_path(tag.id) %></span>
+      <span class="count"><%= tag.posts.count %></span>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h2 class="blog-post-title"><%= t(:tag) %> <%= @tag.tagname %></h2>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+<%= render 'shared/table_posts' %>
+
+
+
+
