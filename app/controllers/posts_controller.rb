@@ -8,16 +8,17 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])    
     @posts = @user.posts.paginate(page: params[:page], :per_page => 7).order(updated_at: :DESC)
 
-    if signed_in? && current_user?(@user) || signed_in? && current_user.admin?
-      @show_actions_own_posts = true
-    else
-      @show_actions_own_posts = nil
-    end      
+    #if signed_in? && current_user?(@user) || signed_in? && current_user.admin?
+    #  @show_actions_own_posts = true
+    #else
+    #  @show_actions_own_posts = nil
+    #end      
   end
 
   def show
     @user = User.find(params[:user_id])
     @post = Post.find_by(id: params[:id])
+    @tags = @post.tags
 
     @post.increment!(:views) if signed_and_not_self?(@user)
 
@@ -56,6 +57,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if  @post.update_attributes(post_params)
+      add_new_tags(@post)
       flash[:success] = t :post_updated
       redirect_to user_post_path(@user, @post)
     else

@@ -34,6 +34,16 @@
         <div class="col-xs-12 col-md-7">
           <span class="views">Просмотров: <%= @post.views %></span>
         </div>
+
+        <% if @tags.count > 0 %>
+          <div class="col-xs-12">
+            <span class="tags">Теги: 
+              <% @tags.each do |tag| %>
+                <span class="tagnames"><%= tag.tagname %>, </span>
+              <% end %>
+            </span>
+          </div>  
+        <% end %>      
       </div>
     </div>
 
