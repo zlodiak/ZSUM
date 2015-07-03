@@ -19,7 +19,7 @@ gem 'paperclip'
 gem 'fancybox2-rails', '~> 0.2.8'
 gem 'rspec-rails'
 gem 'factory_girl'
-gem 'cucumber'
+gem 'database_cleaner'
 
 group :development, :test do
   gem 'byebug'
