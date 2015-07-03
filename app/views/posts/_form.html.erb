@@ -24,6 +24,16 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-12 col-sm-2">
+      <label class="lbl_tagname"><%=t :tags %></label>
+    </div>
+    <div class="col-xs-12 col-sm-10">
+      <%= text_field_tag 'tagnames', nil, class: 'tagnames' %>
+      <div class="help_phrase"><%= t :enter_tags_separated_by_commas %></div>
+    </div>
+  </div>  
+
+  <div class="row">
     <div class="col-xs-12">
       <%= f.submit %>
     </div>
