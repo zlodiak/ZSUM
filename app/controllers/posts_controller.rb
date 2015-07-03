@@ -39,17 +39,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @tagnames = params[:tagnames].split(/[, \.?!]+/) 
-    p @tagnames
-    @tagnames.each do |tagname|
-      tagname_exist = Tag.find_by tagname: tagname
-      if !tagname_exist
-        Tag.create(tagname: tagname)
-      end
-    end
-    p '------------------'
-
-
+    add_new_tags
 
     @post = current_user.posts.build(post_params)
 
@@ -92,6 +82,14 @@ class PostsController < ApplicationController
 
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def add_new_tags
+      tagnames = params[:tagnames].split(/[, \.?!]+/) 
+      tagnames.each do |tagname|
+        tagname_exist = Tag.find_by tagname: tagname.downcase
+        Tag.create(tagname: tagname.downcase) if !tagname_exist
+      end
     end
 
     def post_params
