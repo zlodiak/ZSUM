@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :tags
+  resources :tags,  only: [:index, :show]
+
   namespace :admin do
     resources :users
   end
 
-  resources :tags
   resources :recalls
   resources :sessions,  only: [:new,  :create,  :destroy]
 
