@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703070634) do
+ActiveRecord::Schema.define(version: 20150703100151) do
 
   create_table "genders", force: :cascade do |t|
     t.string   "gender_name"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20150703070634) do
     t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.integer  "views",      default: 0
+  end
+
+  create_table "posts_tags", id: false, force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "tag_id"
   end
 
   create_table "recalls", force: :cascade do |t|
