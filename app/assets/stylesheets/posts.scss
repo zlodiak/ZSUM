@@ -61,6 +61,14 @@
         color: #337ab7;
       }
 
+    .blog_post .meta .tagnames:last-child:after{
+      content: '';
+    }
+
+    .blog_post .meta .tagnames:after{
+      content: ', ';
+    }
+
     .blog_teaser .meta,
     .blog_post .meta{
       color: #999;
@@ -91,3 +99,4 @@
     .blog_teaser .meta .author{
       text-align: left;
     }
+
