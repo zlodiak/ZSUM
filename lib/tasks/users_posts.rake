@@ -7,7 +7,7 @@ namespace :db do
   end
 
   desc    "create users"
-  task    populate_users:   :environment    do
+  task    :populate_users   :populate_genders    do
       User.create!(   name:  'Админ Админович Админов',
                       email:  'ad@ad.ad',
                       diary_name:  'Мой админский бложик',
