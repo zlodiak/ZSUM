@@ -1,6 +1,6 @@
 namespace :db do
   desc    "create recalls"
-  task    populate_recalls:   :environment    do    
+  task    :populate_recalls => :environment    do    
     30.times  do
       Recall.create(
         name: Faker::Name.name, 
