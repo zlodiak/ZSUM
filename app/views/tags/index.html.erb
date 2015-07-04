@@ -2,9 +2,11 @@
 
 <div class="tags_list row">
   <% @tags.each do |tag| %>
-    <div class="col-xs-6 col-sm-4 tag_cell">
-      <span class="title"><%= link_to tag.tagname, tag_path(tag.id) %></span>
-      <span class="count"><%= tag.posts.count %></span>
-    </div>
+    <% if tag.posts.count > 0 %>
+      <div class="col-xs-6 col-sm-4 tag_cell">
+        <span class="title"><%= link_to tag.tagname, tag_path(tag.id) %></span>      
+        <span class="count"><%= tag.posts.count %></span>      
+      </div>
+    <% end %>
   <% end %>
 </div>

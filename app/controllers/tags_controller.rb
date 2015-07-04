@@ -14,6 +14,7 @@ class TagsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def create
@@ -30,8 +31,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tags/1
-  # PATCH/PUT /tags/1.json
   def update
     respond_to do |format|
       if @tag.update(tag_params)
@@ -44,8 +43,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # DELETE /tags/1
-  # DELETE /tags/1.json
   def destroy
     @tag.destroy
     respond_to do |format|
@@ -54,13 +51,15 @@ class TagsController < ApplicationController
     end
   end
 
+  def check_empty_tags
+
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = Tag.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
        params.require(:tag).permit(:tag)
     end
