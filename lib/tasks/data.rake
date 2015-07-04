@@ -1,13 +1,16 @@
-namespace :db do
-  desc    "create genders"
-  task    populate_genders:   :environment    do
+# rake data:populate_posts_tags
+# rake data:populate_recalls
+
+namespace :data do
+  desc "create genders"
+  task :populate_genders => :environment do
     Gender.create!(gender_name: 'unknown')
     Gender.create!(gender_name: 'male')
     Gender.create!(gender_name: 'female')
   end
 
-  desc    "create users"
-  task    :populate_users => :populate_genders do
+  desc "create users"
+  task :populate_users => :populate_genders do
       User.create!(   name:  'Админ Админович Админов',
                       email:  'ad@ad.ad',
                       diary_name:  'Мой админский бложик',
@@ -20,7 +23,7 @@ namespace :db do
                       password:   'qwerty',
                       password_confirmation:  'qwerty')
 
-    23.times    do  |n|
+    23.times do |n|
       name = Faker::Name.name
       email = "ad#{n+1}@ad.ad"
       diary_name = Faker::Company.catch_phrase 
@@ -29,21 +32,21 @@ namespace :db do
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
       password = "qwerty"
-      User.create!(   name:  name,
-                      email:  email,
-                      diary_name:  diary_name,
+      User.create!(   name: name,
+                      email: email,
+                      diary_name: diary_name,
                       gender_id: gender_id,
                       phone: phone,
                       skype: skype,
                       info: info,
                       admin: nil,
-                      password:   password,
-                      password_confirmation:  password)
+                      password: password,
+                      password_confirmation: password)
     end
   end
 
-  desc    "create posts"
-  task    :populate_posts => :populate_users do    
+  desc "create posts"
+  task :populate_posts => :populate_users do    
     users = User.all
 
     users.each do |user|
@@ -55,6 +58,45 @@ namespace :db do
       end
     end
   end
+
+  desc "create tags"
+  task :populate_tags => :populate_posts do    
+    DatabaseCleaner.clean_with(:truncation, :only => ['tags', 'posts_tags'])
+    10.times  do |n|
+      Tag.create(
+        tagname: Faker::Lorem.word + "#{n}"
+      ) 
+    end     
+  end
+
+  desc "create posts_tags"
+  task :populate_posts_tags => :populate_tags  do   
+    tags = Tag.all 
+    600.times do
+      tag = Tag.find(rand(1..10))
+      post = Post.find(rand(1..360))
+      tag.posts << post
+    end
+  end  
+
+  desc "create recalls"
+  task :populate_recalls => :environment do    
+    30.times  do
+      Recall.create(
+        name: Faker::Name.name, 
+        message: Faker::Lorem.paragraph(10)
+      ) 
+
+      user = User.find(rand(1..20))
+      if user 
+        Recall.create(
+          name: '',
+          user_id: user.id,
+          message: Faker::Lorem.paragraph(10)
+        )       
+      end 
+    end     
+  end    
 end
 
 
