@@ -1,5 +1,5 @@
 class RecallsController < ApplicationController
-  before_action :set_recall, only: [:show, :edit, :update, :destroy]
+  before_action :set_recall, only: [:show, :edit, :destroy]
 
   def index
     @recalls = Recall.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
@@ -44,12 +44,11 @@ class RecallsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_recall
       @recall = Recall.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def recall_params
       params.require(:recall).permit(:name, :message)
     end

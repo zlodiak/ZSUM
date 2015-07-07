@@ -3,16 +3,15 @@ class PagesController < ApplicationController
   end
 
   def all_diary
-    @diaries = User.paginate(page: params[:page], :per_page => 7)
+    @diaries = User.paginate(page: params[:page], :per_page => 10)
   end
 
   def popular_diary
-    # @diaries = User.paginate(page: params[:page], :per_page => 7).order(views_diary: :DESC)
-    @diaries = User.paginate(page: params[:page], :per_page => 7).joins(:posts).group(:user_id).order('SUM(posts.views) DESC')
+    @diaries = User.paginate(page: params[:page], :per_page => 10).joins(:posts).group(:user_id).order('SUM(posts.views) DESC')
   end
 
   def lasts_diary
-    @diaries = User.paginate(page: params[:page], :per_page => 7).order(created_at: :DESC)
+    @diaries = User.paginate(page: params[:page], :per_page => 10).order(created_at: :DESC)
   end
 
   def rules
@@ -22,16 +21,16 @@ class PagesController < ApplicationController
   end  
 
   def popular_posts
-    @posts = Post.paginate(page: params[:page], :per_page => 7).order(views: :DESC)
+    @posts = Post.paginate(page: params[:page], :per_page => 10).order(views: :DESC)
   end    
 
   def last_posts
-    @posts = Post.paginate(page: params[:page], :per_page => 7).order(created_at: :DESC)
+    @posts = Post.paginate(page: params[:page], :per_page => 10).order(created_at: :DESC)
   end   
 
   def search
     if params[:search] && params[:search] != ''
-      @posts = Post.paginate(page: params[:page], :per_page => 7).where("body like ? or title like ?", "%#{params[:search]}%", "%#{params[:search]}%").distinct
+      @posts = Post.paginate(page: params[:page], :per_page => 10).where("body like ? or title like ?", "%#{params[:search]}%", "%#{params[:search]}%").distinct
     else
       @posts = nil
     end    
@@ -58,6 +57,7 @@ class PagesController < ApplicationController
   end   
 
   private
+  
     def user_params
       params.permit(:search)
     end           

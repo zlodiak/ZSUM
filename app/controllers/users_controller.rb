@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :show_actions, only: [:index, :show]
@@ -7,22 +8,20 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], :per_page => 7)    
   end
 
-  def show
-    @user = User.find(params[:id])    
+  def show   
   end
 
   def new
     @user = User.new
   end
 
-  def edit
-    @user = User.find(params[:id])   
+  def edit 
   end
 
   def create
     @user = User.new(user_params)   
     
-    if  @user.save
+    if @user.save
       sign_in @user
       flash[:success] = "Welcome  to  the Sample  App!"
       redirect_to  @user
@@ -33,8 +32,6 @@ class UsersController < ApplicationController
   end 
 
   def update
-    @user = User.find(params[:id])
-    
     if @user.update_attributes(user_params)
       if params[:delete_avatar]
         @user.update_attributes(
@@ -53,8 +50,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
-
     if !@user.admin?
       @user.destroy
       flash[:success] = "User deleted."
@@ -66,6 +61,10 @@ class UsersController < ApplicationController
   end 
 
   private
+
+    def set_user
+      @user = User.find(params[:id])
+    end  
 
     def show_actions
       if signed_in? && current_user.admin?
