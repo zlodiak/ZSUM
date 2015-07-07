@@ -17,5 +17,10 @@ module Admin::UsersHelper
 
   def get_summary_views
     @admins_count = ::Post.all.sum(:views)
-  end      
+  end 
+
+  def get_summary_tags
+    #@tags_used_count = ::Tag.joins('posts').distinct.count
+    #@tags_used_count = ::Tag.joins(:posts_tags).group('posts_tags.tag_id').distinct.count
+  end         
 end
