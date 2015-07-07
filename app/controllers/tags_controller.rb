@@ -1,11 +1,10 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: [:show]
-
   def index
     @tags = Tag.all.order(tagname: :ASC)
   end
 
   def show
+    @tag = Tag.find(params[:id])
     @posts = @tag.posts.paginate(page: params[:page], :per_page => 10)
   end
 
@@ -56,9 +55,6 @@ class TagsController < ApplicationController
   end
 
   private
-    def set_tag
-      @tag = Tag.find(params[:id])
-    end
 
     def tag_params
        params.require(:tag).permit(:tag)
