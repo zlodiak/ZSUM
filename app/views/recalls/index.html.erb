@@ -4,31 +4,37 @@
   <%= render 'form' %>
 </div>
 
-<div class="row">
-  <% @recalls.each do |recall| %>
-    <article class="article recall_post">
-      <h3 class="col-xs-12 col-sm-6 h3 name">
-        <% if recall.user_id %>
-          <%= link_to recall.user.name, user_path(recall.user.id) %>
-        <% else %>
-          <%= recall.name %>
-        <% end %>
-      </h3>
+<% if @recalls.count > 0 %>
+  <div class="row">
+    <% @recalls.each do |recall| %>
+      <article class="article recall_post">
+        <h3 class="col-xs-12 col-sm-6 h3 name">
+          <% if recall.user_id %>
+            <%= link_to recall.user.name, user_path(recall.user.id) %>
+          <% else %>
+            <%= recall.name %>
+          <% end %>
+        </h3>
 
-      <div class="col-xs-12 col-sm-6 email">
-        <%= l recall.created_at, format: "%e %b %Y, %H:%I" %>
+        <div class="col-xs-12 col-sm-6 email">
+          <%= l recall.created_at, format: "%e %b %Y, %H:%I" %>
 
-        <% if signed_in? && current_user.admin? %>
-          <%= link_to '', recall_path(recall.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
-        <% end %>        
-      </div>      
+          <% if signed_in? && current_user.admin? %>
+            <%= link_to '', recall_path(recall.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
+          <% end %>        
+        </div>      
 
-      <div class="col-xs-12 message"><%= recall.message %></div>
-    </article> 
-  <% end %>      
-</div>
+        <div class="col-xs-12 message"><%= recall.message %></div>
+      </article> 
+    <% end %>      
+  </div>
 
-<%= will_paginate %>
+  <%= will_paginate @recalls, :previous_label => '', :next_label => '' %>
+<% else %>
+  <div class="row"><%= t :no_tags %></div>
+<% end %>
+
+
 
 
 

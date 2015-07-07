@@ -1,37 +1,40 @@
 <h2 class="blog-post-title"><%= t(:users) %></h2>
 
-<div class="common_table">
-  <div class="row">
-    <div class="col-xs-6 th">user_name</div>
-    <div class="col-xs-3 th">gender</div>
-    <div class="col-xs-3 th"></div>
-  </div>
-
-  <% @users.each do |user| %>
+<% if @users.count != 0 %>
+  <div class="common_table">
     <div class="row">
-      <div class="col-xs-6">
-        <%= link_to user_path(user.id) do %>
-          <%= user.name %>
-        <% end %>    
-      </div>
-
-      <div class="col-xs-3">
-        <% if user.gender %>
-          <%= t(user.gender.gender_name) %>
-        <% end %>
-      </div>
-
-      <div class="col-xs-3">
-        <% if @show_actions %>
-          <%= link_to '', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
-          <%= link_to '', edit_user_path(user), class: 'glyphicon glyphicon-edit pull-right' %>
-        <% end %>
-      </div>
+      <div class="col-xs-6 th">user_name</div>
+      <div class="col-xs-3 th">gender</div>
+      <div class="col-xs-3 th"></div>
     </div>
-  <% end %> 
-</div>    
 
-<%= will_paginate @users, :previous_label => '', :next_label => '' %>
+    <% @users.each do |user| %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= link_to user_path(user.id) do %>
+            <%= user.name %>
+          <% end %>    
+        </div>
 
+        <div class="col-xs-3">
+          <% if user.gender %>
+            <%= t(user.gender.gender_name) %>
+          <% end %>
+        </div>
+
+        <div class="col-xs-3">
+          <% if @show_actions %>
+            <%= link_to '', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-remove pull-right" %>
+            <%= link_to '', edit_user_path(user), class: 'glyphicon glyphicon-edit pull-right' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %> 
+  </div>    
+
+  <%= will_paginate @users, :previous_label => '', :next_label => '' %>
+<% else %>
+  <div class="row"><%= t :no_users %></div>
+<% end %>
 
 

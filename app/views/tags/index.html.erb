@@ -1,12 +1,16 @@
 <h2 class="blog-post-title"><%= t :tags %></h2>
 
-<div class="tags_list row">
-  <% @tags.each do |tag| %>
-    <% if tag.posts.count > 0 %>
-      <div class="col-xs-6 col-sm-4 tag_cell">
-        <span class="title"><%= link_to tag.tagname, tag_path(tag.id) %></span>      
-        <span class="count"><%= tag.posts.count %></span>      
-      </div>
+<% if @tags.count != 0 %>
+  <div class="tags_list row">
+    <% @tags.each do |tag| %>
+      <% if tag.posts.count > 0 %>
+        <div class="col-xs-6 col-sm-4 tag_cell">
+          <span class="title"><%= link_to tag.tagname, tag_path(tag.id) %></span>      
+          <span class="count"><%= tag.posts.count %></span>      
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <div class="row"><%= t :no_tags %></div>
+<% end %>
