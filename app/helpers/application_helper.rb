@@ -10,6 +10,4 @@ module ApplicationHelper
       ' <a class="content_link" href="\1" target="_blank">\1</a> '
     s.html_safe    
   end
-
- 
 end

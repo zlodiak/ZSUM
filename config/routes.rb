@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :recalls
-  resources :sessions,  only: [:new,  :create,  :destroy]
+  resources :recalls, only: [:index, :create, :destroy]
 
-  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
     resources :posts
@@ -27,8 +26,6 @@ Rails.application.routes.draw do
   get 'pages/search'
   get "admin" => 'admin/users#index'
 
-
-  # match '/users', to: 'users#index', via:  'get'
   match '/signup', to: 'users#new', via:  'get'
   match '/signin', to: 'sessions#new', via:  'get'
   match '/signout', to: 'sessions#destroy', via:  'delete'  
