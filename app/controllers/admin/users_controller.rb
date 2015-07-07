@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update, :destroy]
   before_action :signed_in_user
   before_action :admin_user
 
@@ -17,13 +18,10 @@ class Admin::UsersController < ApplicationController
     render :index, :locals => {:quantity => quantity, :order => order}
   end
 
-  def edit
-    @user = ::User.find(params[:id]) 
+  def edit  
   end
 
   def update
-    @user = ::User.find(params[:id])   
-    
     if @user.update_attributes(user_params)
       if params[:delete_avatar]
         @user.update_attributes(
@@ -42,8 +40,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user = ::User.find(params[:id])
-
     if !@user.admin?
       @user.destroy
       flash[:success] = "User deleted."
@@ -56,16 +52,13 @@ class Admin::UsersController < ApplicationController
 
   private
 
-    def set_admin_user
-      @admin_user = Admin::User.find(params[:id])
+    def set_user
+      @user = ::User.find(params[:id])  
     end
-
 
     def user_params
       params.require(:user).permit( :name, :email, :diary_name, :password, :gender_id, 
                                     :password_confirmation, :phone, :skype, :info, 
                                     :avatar, :delete_avatar, :admin, :fld_order, :fld_quantity)
     end  
-
-
 end
