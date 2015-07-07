@@ -47,5 +47,4 @@ class PagesControllerTest < ActionController::TestCase
     assert_template :rules
     assert_template layout: "layouts/application"      
   end  
-    
 end

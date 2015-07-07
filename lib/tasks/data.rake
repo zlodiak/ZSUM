@@ -32,7 +32,8 @@ namespace :data do
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
       password = "qwerty"
-      User.create!(   name: name,
+      User.create!(   
+                      name: name,
                       email: email,
                       diary_name: diary_name,
                       gender_id: gender_id,
@@ -41,7 +42,8 @@ namespace :data do
                       info: info,
                       admin: nil,
                       password: password,
-                      password_confirmation: password)
+                      password_confirmation: password
+      )
     end
   end
 

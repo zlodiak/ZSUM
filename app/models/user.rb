@@ -3,9 +3,8 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence:     true,
-                                      format:         { with: VALID_EMAIL_REGEX },
-                                      uniqueness: { case_sensitive: false }
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+                                    uniqueness: { case_sensitive: false }
   validates :diary_name, presence: true, uniqueness: { case_sensitive: false }
   validates :password,  length: { minimum:  6 }  
   validates :name,  presence: true, length: { maximum:  50  }, uniqueness: { case_sensitive: false }
@@ -21,11 +20,11 @@ class User < ActiveRecord::Base
   validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 
   def User.new_remember_token
-      SecureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64
   end
   
   def User.encrypt(token)
-      Digest::SHA1.hexdigest(token.to_s)
+    Digest::SHA1.hexdigest(token.to_s)
   end  
 
   GENDER_TYPES = [['-', 1], ['Муж', 2], ['Жен', 3]]

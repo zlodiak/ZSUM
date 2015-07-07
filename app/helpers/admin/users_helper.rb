@@ -20,7 +20,6 @@ module Admin::UsersHelper
   end 
 
   def get_summary_tags
-    #@tags_used_count = ::Tag.joins('posts').distinct.count
-    #@tags_used_count = ::Tag.joins(:posts_tags).group('posts_tags.tag_id').distinct.count
+    @tags_count = ::Tag.all.count
   end         
 end

@@ -1,12 +1,12 @@
-<h2 class="blog-post-title"><%= t("sign_in") %></h2>
+<h2 class="blog-post-title"><%= t :sign_in %></h2>
 
-<%= form_for(:session,  url:  sessions_path)  do  |f| %>
+<%= form_for(:session, url: sessions_path)  do  |f| %>
   <div class="row">
     <div class="col-xs-12 col-sm-2">
       <%= f.label t(:email)  %>
     </div>
     <div class="col-xs-12 col-sm-10">
-      <%= f.text_field  :email  %>
+      <%= f.text_field :email  %>
     </div>
   </div>
 
@@ -15,16 +15,16 @@
       <%= f.label t(:password) %>
     </div>
     <div class="col-xs-12 col-sm-10">    
-      <%= f.password_field  :password %>
+      <%= f.password_field :password %>
     </div>
   </div>
 
   <div class="row actions">
     <div class="col-xs-12 col-sm-4 col">
-      <%= f.submit  t("sign_in"),  class:  ""  %>
+      <%= f.submit  t("sign_in") %>
     </div>
     <div class="col-xs-12 col-sm-8 col">  
-      <%= link_to t('sign_up'),  signup_path %>
+      <%= link_to t('sign_up'), signup_path %>
     </div>
   </div>
 <%  end %>
