@@ -49,8 +49,12 @@ class PagesController < ApplicationController
       I18n.locale = 'en'
     end
 
-    # redirect_to request.referer
-    redirect_to root_url,  :flash => { :success => t('lang_changed') }
+    addr = request.referer
+    if (addr.sub! 'en', 'ru')
+      redirect_to addr,  :flash => { :success => t('lang_changed') }
+    elsif(addr.sub! 'ru', 'en')
+      redirect_to addr,  :flash => { :success => t('lang_changed') }
+    end
   end   
 
   private
