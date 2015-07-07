@@ -18,25 +18,3 @@
 //= require_tree .
 
 
-$(document).ready(function() {
-  // ------------------------------------- fancybox2
-  $("a.fancybox").fancybox();
-
-  // -------------------------------------lang toggler
-   var get = window.location.search,
-      langContainer = $('.language_area'),
-      rusToggler = $('#rus'),
-      engToggler = $('#eng');
-
-  console.log(get);
-
-  langContainer.find('a').removeClass('active');
-
-  if(get.indexOf('locale=ru') != -1){
-    console.log(11);
-    rusToggler.addClass('active'); 
-  }else if(get.indexOf('locale=en') != -1){
-    console.log(22);
-    engToggler.addClass('active'); 
-  }
-});
