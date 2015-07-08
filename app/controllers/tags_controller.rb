@@ -4,8 +4,9 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
-    @posts = @tag.posts.paginate(page: params[:page], :per_page => 10)
+    @tag = Tag.find_by_id(params[:id])
+    @posts = @tag.posts.paginate(page: params[:page], :per_page => 10) if @tag
+    render_404 unless @tag 
   end
 
   def new

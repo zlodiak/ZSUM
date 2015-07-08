@@ -46,7 +46,8 @@ class RecallsController < ApplicationController
   private
 
     def set_recall
-      @recall = Recall.find(params[:id])
+      @recall = Recall.find_by_id(params[:id])
+      render_404 unless @recall
     end
 
     def recall_params
