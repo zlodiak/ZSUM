@@ -44,9 +44,10 @@ class PostsController < ApplicationController
   def update
     if @post.update_attributes(post_params)
       add_new_tags(@post)
-      p '------------------'
+      p '------------------1'
       p params['delete_tags']
-      #delete_tags(params['delete_tags'], @post)
+      p '------------------2'
+      destroy_tags(params['delete_tags'], @post)
       flash[:success] = t :post_updated
       redirect_to user_post_path(@user, @post)
     else
@@ -89,9 +90,14 @@ class PostsController < ApplicationController
       end
     end
 
-    def delete_tags(delete_tags, post)
-      delete_tags.each do |tagname|
-        tag.posts >> post
+    def destroy_tags(tags,post)
+      tags.each do |tag|
+          p '=================='
+          p tag
+          tag_del = post.tags.find(:tag_id => tag.id)
+          if teg_del
+            post.tags.delete(tag_del)
+          end
       end
     end    
 
