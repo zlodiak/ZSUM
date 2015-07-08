@@ -43,11 +43,11 @@ class PostsController < ApplicationController
 
   def update
     if @post.update_attributes(post_params)
-      add_new_tags(@post)
+      add_new_tags(@post) if params[:tagnames]
       p '------------------1'
       p params['delete_tags']
       p '------------------2'
-      destroy_tags(params['delete_tags'], @post)
+      destroy_tags(params['delete_tags'], @post) if params['delete_tags']
       flash[:success] = t :post_updated
       redirect_to user_post_path(@user, @post)
     else
@@ -85,8 +85,20 @@ class PostsController < ApplicationController
     def add_new_tags(post)
       tagnames = params[:tagnames].split(/[, \.?!]+/) 
       tagnames.each do |tagname|
-        tag = Tag.find_or_create_by(tagname: tagname.downcase)
-        tag.posts << post
+        #tag = Tag.find_or_create_by(tagname: tagname.downcase)
+        tag = Tag.find_by(tagname: tagname.downcase)
+        p '88888888888888'
+        p tag.id
+        if tag
+          sql = "select * from 'posts_tags' where post_id = #{post.id} and tag_id = #{tag.id}"
+          p 'tttttttttttttttt'
+          p sql
+          records_array = ActiveRecord::Base.connection.execute(sql)            
+          tag.posts << post unless records_array
+        else
+          tag = Tag.create(tagname: tagname.downcase)
+          tag.posts << post
+        end
       end
     end
 
@@ -94,10 +106,9 @@ class PostsController < ApplicationController
       tags.each do |tag|
           p '=================='
           p tag
-          tag_del = post.tags.find(:tag_id => tag.id)
-          if teg_del
-            post.tags.delete(tag_del)
-          end
+          sql = "delete from 'posts_tags' where post_id = #{post.id} and tag_id = #{tag}"
+          p sql
+          records_array = ActiveRecord::Base.connection.execute(sql)          
       end
     end    
 
