@@ -68,11 +68,13 @@ class PostsController < ApplicationController
     end  
 
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by_id(params[:id])
+      render_404 unless @post
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = User.find_by_id(params[:user_id])
+      render_404 unless @user
     end    
 
     def add_new_tags(post)
