@@ -87,14 +87,10 @@ class PostsController < ApplicationController
       tagnames.each do |tagname|
         #tag = Tag.find_or_create_by(tagname: tagname.downcase)
         tag = Tag.find_by(tagname: tagname.downcase)
-        p '88888888888888'
-        p tag.id
         if tag
           sql = "select * from 'posts_tags' where post_id = #{post.id} and tag_id = #{tag.id}"
-          p 'tttttttttttttttt'
-          p sql
-          records_array = ActiveRecord::Base.connection.execute(sql)            
-          tag.posts << post unless records_array
+          records_array = ActiveRecord::Base.connection.execute(sql)     
+          tag.posts << post if records_array.count == 0
         else
           tag = Tag.create(tagname: tagname.downcase)
           tag.posts << post
@@ -104,11 +100,8 @@ class PostsController < ApplicationController
 
     def destroy_tags(tags,post)
       tags.each do |tag|
-          p '=================='
-          p tag
-          sql = "delete from 'posts_tags' where post_id = #{post.id} and tag_id = #{tag}"
-          p sql
-          records_array = ActiveRecord::Base.connection.execute(sql)          
+        sql = "delete from 'posts_tags' where post_id = #{post.id} and tag_id = #{tag}"
+        records_array = ActiveRecord::Base.connection.execute(sql)    
       end
     end    
 
