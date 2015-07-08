@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @tags = @post.tags
   end
 
   def create  
@@ -43,6 +44,9 @@ class PostsController < ApplicationController
   def update
     if @post.update_attributes(post_params)
       add_new_tags(@post)
+      p '------------------'
+      p params['delete_tags']
+      #delete_tags(params['delete_tags'], @post)
       flash[:success] = t :post_updated
       redirect_to user_post_path(@user, @post)
     else
@@ -85,7 +89,13 @@ class PostsController < ApplicationController
       end
     end
 
+    def delete_tags(delete_tags, post)
+      delete_tags.each do |tagname|
+        tag.posts >> post
+      end
+    end    
+
     def post_params
-      params.require(:post).permit(:title, :body, :tagnames)
+      params.require(:post).permit(:title, :body, :tagnames, :delete_tags)
     end
 end

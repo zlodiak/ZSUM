@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  rescue_from ActionController::RoutingError, :with => :render_404 
+  
   before_action :set_locale
 
   protect_from_forgery with: :exception
