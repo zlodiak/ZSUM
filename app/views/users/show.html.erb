@@ -51,6 +51,10 @@
     <div class="label_table col-xs-12 col-sm-2">Info:</div>
     <div class="info_table col-xs-12 col-sm-10"><%= urls_to_links(urls_to_images(@user.info)) %></div>
   </div>
+
+  <div class="row">
+    <div class="label_table col-xs-12"><%= link_to t('link_to_diary'), user_posts_path(@user.id) %></div>
+  </div>  
 </div>
 
 

@@ -41,7 +41,7 @@
       <div class="row">
         <% @tags.each do |tag|%>
           <div class="col-xs-6 col-sm-4">
-            <%= check_box_tag(:delete_tags, "delete_tags[#{tag.id}]") %>
+            <%= check_box_tag("delete_tags[]", tag.id) %>
             <%= label_tag(:delete_tags, tag.tagname) %>
           </div>
         <% end %>
