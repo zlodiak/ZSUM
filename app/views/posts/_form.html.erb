@@ -33,7 +33,7 @@
     </div>
   </div>  
 
-  <% if @tags %>
+  <% if @tags.count > 0 %>
     <div class="row">
       <div class="col-xs-12 col-sm-2">
         <label class="lbl_tagname"><%= t :delete_tags %></label>

@@ -37,5 +37,7 @@ module Zsum
     #end
 
     # config.autoload_paths += %W["#{config.root}/app/validators/"]
+
+    config.time_zone = 'Moscow'
   end
 end
