@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :name %>
+      <%= f.label t :name %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_field  :name %>
@@ -16,7 +16,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :email  %>
+      <%= f.label t :email  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_field  :email  %>
@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :diary_name  %>
+      <%= f.label t :diary_name  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_field  :diary_name  %>   
@@ -34,7 +34,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :gender  %>
+      <%= f.label t :gender  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.select :gender_id,  User::GENDER_TYPES %>
@@ -43,7 +43,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :phone  %>
+      <%= f.label t :phone  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_field  :phone  %>  
@@ -52,7 +52,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :skype  %>
+      <%= f.label t :skype  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_field  :skype  %>   
@@ -61,7 +61,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :info  %>
+      <%= f.label t :info  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_area  :info, cols: 30, rows: 10 %>   
@@ -75,14 +75,16 @@
           <%= image_tag(@user.avatar.url(:thumb) , class: "thumb_icon thumb_icon_h2 pull-left", alt: '') %>
         <% end %>
       </div>
-      <div class="col-xs-9 image_delete">
+      <div class="col-xs-9 col-sm-9 image_delete">
         <%= check_box_tag(:delete_avatar) %>
-        <%= label_tag(:delete_avatar, "Удалить аватар") %>
+        <%= label_tag(:delete_avatar, t('delete_avatar')) %>
       </div>
     <% end %>
+  </div>
 
+  <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :avatar %>
+      <%= f.label t :avatar %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.file_field  :avatar %>
@@ -91,7 +93,7 @@
 
   <div class="row hide">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :created_date  %>
+      <%= f.label t :created_date  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= select_date @user.created_at, prefix: :created_at %> 
@@ -100,7 +102,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :admin  %>
+      <%= f.label t :admin_status  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.check_box  :admin %>   
@@ -109,7 +111,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :password %>
+      <%= f.label t :password %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.password_field  :password %>
@@ -118,7 +120,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :password_confirmation, "Confirmation"  %>
+      <%= f.label :password_confirmation, t('password_confirmation')  %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.password_field  :password_confirmation  %>
@@ -127,7 +129,7 @@
 
   <div class="row actions">
     <div class="col-xs-12 col-sm-2">
-      <%= f.submit %>
+      <%= f.submit t :save %>
     </div>
   </div>
 <% end %>

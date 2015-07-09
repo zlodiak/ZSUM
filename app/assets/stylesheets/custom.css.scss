@@ -76,7 +76,7 @@ h3, .h3{
 }
 
 .sort_by form label{
-  min-width: 70px;
+  min-width: 170px;
 }
 
 
@@ -450,7 +450,7 @@ form label,
 }
 
 .blog-masthead .auth_area .to_admininterface:before{
-  content: '>>>>>';
+  content: '>>>>> ';
 
 }
 
@@ -467,7 +467,8 @@ form label,
 
 
 .blog-masthead .auth_area .to_userinterface:before{
-  content: '<<<<<';
+  content: '<<<<<  ';
+
 
 }
 

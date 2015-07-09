@@ -2,12 +2,12 @@
 
 <div class="common_table">
   <div class="row headers_table">
-    <div class="col-sm-4 th">user_name</div>
-    <div class="col-sm-2 th">email</div>
-    <div class="col-sm-2 th">create_date</div>
-    <div class="col-sm-2 th">update_date</div>
-    <div class="col-sm-1 th">admin</div>
-    <div class="col-sm-1 th">actions</div>
+    <div class="col-sm-4 th"><%= t :user_name %></div>
+    <div class="col-sm-2 th"><%= t :email %></div>
+    <div class="col-sm-2 th"><%= t :create_date %></div>
+    <div class="col-sm-2 th"><%= t :update_date %></div>
+    <div class="col-sm-1 th"><%= t :admin_status %></div>
+    <div class="col-sm-1 th"><%= t :actions %></div>
   </div>
 
   <% @users.each do |user| %>
@@ -48,7 +48,7 @@
   <%= form_tag(admin_users_path, method: 'get') do %>
     <div class="col-xs-12 col-sm-3">
       <%= label_tag 'fld_order', t(:order_by), class: 'lbl_order' %>
-      <%= select_tag "fld_order", options_for_select([ "Ascending", "Descending" ], order) %>
+      <%= select_tag "fld_order", options_for_select([t('ascending'), t('descending') ], order) %>
     </div>
 
     <div class="col-xs-12 col-sm-3">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-3">
-      <%= submit_tag "Sort", class: "btn_submit" %>
+      <%= submit_tag t :sort, class: "btn_submit" %>
     </div>
   <% end %>
 </div>

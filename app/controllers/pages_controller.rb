@@ -48,8 +48,10 @@ class PagesController < ApplicationController
   def lang_toggle
     if params[:locale] == 'ru'
       I18n.locale = 'ru'
-    else
+    elsif params[:locale] == 'en'
       I18n.locale = 'en'
+    else
+      return
     end
 
     addr = request.referer
