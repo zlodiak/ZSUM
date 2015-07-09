@@ -23,15 +23,15 @@
 
         <div class="meta">
           <div class="col-xs-12 col-sm-6 col-md-12">
-            <span class="create_date">Дата создания: <%= l post.created_at, format: "%e %b %Y, %H:%I" %></span>
+            <span class="create_date"><%= t :create_date %>: <%= l post.created_at, format: "%e %b %Y, %H:%I" %></span>
           </div>
 
           <div class="col-xs-6 col-sm-6 col-md-6">
-            <span class="author">Автор: <%= link_to post.user.name, user_path(post.user_id) %></span>
+            <span class="author"><%= t :author %>: <%= link_to post.user.name, user_path(post.user_id) %></span>
           </div>
 
           <div class="col-xs-6 col-sm-6 col-md-6">
-            <span class="views">Просмотров: <%= post.views %></span>        
+            <span class="views"><%= t :views %>: <%= post.views %></span>        
           </div>
         </div>
 

@@ -89,3 +89,8 @@ ru:
   save: 'Сохранить'
   delete_avatar: 'Удалить аватар'
   lang_changed: 'Язык изменён'
+  author: 'Автор'
+  views: 'Просмотров'
+  search_now: 'Найти'
+  submit: 'Отправить'
+  message: 'Сообщение'

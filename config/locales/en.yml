@@ -89,3 +89,8 @@ en:
   save: 'Save'
   delete_avatar: 'Delete avatar'
   lang_changed: 'Language changed'
+  author: 'Author'
+  views: 'views'
+  search_now: 'Search now'
+  submit: 'Submit'
+  message: 'Message'
