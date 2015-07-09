@@ -19,7 +19,7 @@
 
 <div class="sheet">
   <div class="row">
-    <div class="label_table col-xs-4 col-sm-2">Gender:</div>
+    <div class="label_table col-xs-4 col-sm-2"><%= t :gender %>:</div>
     <div class="info_table col-xs-8 col-sm-10">
       <% if @user.gender_id %>
         <%= t(@user.gender.gender_name) %>
@@ -28,33 +28,29 @@
   </div>    
 
   <div class="row">
-    <div class="label_table col-xs-4 col-sm-2">Email:</div>
+    <div class="label_table col-xs-4 col-sm-2"><%= t :email %>:</div>
     <div class="info_table col-xs-8 col-sm-10"><a href="mailto:<%= @user.email %>"><%= @user.email %></a></div>
   </div>    
 
   <div class="row">
-    <div class="label_table col-xs-4 col-sm-2">Phone:</div>
+    <div class="label_table col-xs-4 col-sm-2"><%= t :phone %>:</div>
     <div class="info_table col-xs-8 col-sm-10"><%= @user.phone %></div>
   </div>    
 
   <div class="row">
-    <div class="label_table col-xs-4 col-sm-2">Skype:</div>
+    <div class="label_table col-xs-4 col-sm-2"><%= t :skype %>:</div>
     <div class="info_table col-xs-8 col-sm-10"><%= @user.skype %></div>
   </div>    
 
   <div class="row">
-    <div class="label_table col-xs-4 col-sm-2">diary_name:</div>
-    <div class="info_table col-xs-8 col-sm-10"><%= @user.diary_name %></div>
+    <div class="label_table col-xs-4 col-sm-2"><%= t :diary_name %>:</div>
+    <div class="info_table col-xs-8 col-sm-10"><%= link_to @user.diary_name, user_posts_path(@user.id) %></div>
   </div>  
 
   <div class="row">
-    <div class="label_table col-xs-12 col-sm-2">Info:</div>
+    <div class="label_table col-xs-12 col-sm-2"><%= t :info %>:</div>
     <div class="info_table col-xs-12 col-sm-10"><%= urls_to_links(urls_to_images(@user.info)) %></div>
-  </div>
-
-  <div class="row">
-    <div class="label_table col-xs-12"><%= link_to t('link_to_diary'), user_posts_path(@user.id) %></div>
-  </div>  
+  </div> 
 </div>
 
 

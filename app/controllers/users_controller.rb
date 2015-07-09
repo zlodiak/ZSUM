@@ -23,10 +23,10 @@ class UsersController < ApplicationController
     
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome  to  the Sample  App!"
+      flash[:success] = t :user_created
       redirect_to  @user
     else
-      flash.now[:error] = 'Invalid data' 
+      flash.now[:error] = t :user_not_created
       render  'new'
     end
   end 
@@ -41,10 +41,10 @@ class UsersController < ApplicationController
         )
       end
       
-      flash[:success] = "Profile  updated"
+      flash[:success] = t :profile_updated
       redirect_to @user
     else
-      flash[:error] = "Profile  updated failed"
+      flash[:error] = t :profile_update_failed
       render  'edit'
     end
   end
@@ -52,9 +52,9 @@ class UsersController < ApplicationController
   def destroy
     if !@user.admin?
       @user.destroy
-      flash[:success] = "User deleted."
+      flash[:success] = t :user_deleted
     else
-      flash[:error] = "admin_not_delete"
+      flash[:error] = t :user_not_deleted
     end
 
     redirect_to users_url    
