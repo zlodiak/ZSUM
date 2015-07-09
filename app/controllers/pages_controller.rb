@@ -30,7 +30,11 @@ class PagesController < ApplicationController
 
   def search
     if params[:search] && params[:search] != ''
-      @posts = Post.paginate(page: params[:page], :per_page => 10).where("body like ? or title like ?", "%#{params[:search]}%", "%#{params[:search]}%").distinct
+      @posts =  Post.paginate(page: params[:page], :per_page => 10).joins(:user)
+                .where("body like ? or title like ? or name like ?", 
+                "%#{params[:search]}%", 
+                "%#{params[:search]}%", 
+                "%#{params[:search]}%").distinct
     else
       @posts = nil
     end    
