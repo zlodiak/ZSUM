@@ -1,9 +1,9 @@
 <% if @diaries.count != 0 %>
   <div class="common_table">
     <div class="row headers_table">
-      <div class="col-sm-6 th">diary_name</div>
-      <div class="col-sm-3 th">created_date</div>
-      <div class="col-sm-3 th">updated_date</div>
+      <div class="col-sm-6 th"><%= t :diary_name %></div>
+      <div class="col-sm-3 th"><%= t :create_date %></div>
+      <div class="col-sm-3 th"><%= t :update_date %></div>
     </div>
 
     <% @diaries.each do |diary| %>

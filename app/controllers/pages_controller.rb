@@ -55,9 +55,9 @@ class PagesController < ApplicationController
     end
 
     addr = request.referer
-    if (addr.sub! 'en', 'ru')
+    if (addr.sub! '=en', '=ru')
       redirect_to addr,  :flash => { :success => t('lang_changed') }
-    elsif(addr.sub! 'ru', 'en')
+    elsif(addr.sub! '=ru', '=en')
       redirect_to addr,  :flash => { :success => t('lang_changed') }
     end
   end   
