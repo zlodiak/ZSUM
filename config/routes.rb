@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "admin" => 'admin/users#index'
 
   match '/signup', to: 'users#new', via:  'get'
+  match '/sessions', to: 'sessions#new', via:  'get'
   match '/signin', to: 'sessions#new', via:  'get'
   match '/signout', to: 'sessions#destroy', via:  'delete'  
 
