@@ -20,24 +20,24 @@
     <div class="col-xs-12 meta">
       <div class="row">
         <div class="col-xs-12 col-md-5">
-          <span class="create_date">Дата создания: <%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
+          <span class="create_date"><%= t :create_date %>: <%= l @post.created_at, format: "%e %b %Y, %H:%I" %></span>
         </div>
 
         <div class="col-xs-12 col-md-7">
-          <span class="author">Автор: <%= link_to @user.name, user_path(@user) %></span>
+          <span class="author"><%= t :author %>: <%= link_to @user.name, user_path(@user) %></span>
         </div>
 
         <div class="col-xs-12 col-md-5">
-          <span class="update_date">Дата изменения: <%= l @post.updated_at, format: "%e %b %Y, %H:%I" %></span>      
+          <span class="update_date"><%= t :update_date %>: <%= l @post.updated_at, format: "%e %b %Y, %H:%I" %></span>      
         </div>
 
         <div class="col-xs-12 col-md-7">
-          <span class="views">Просмотров: <%= @post.views %></span>
+          <span class="views"><%= t :views %>: <%= @post.views %></span>
         </div>
 
         <% if @tags.count > 0 %>
           <div class="col-xs-12">
-            <span class="tags">Теги: 
+            <span class="tags"><%= t :tags %>: 
               <% @tags.each do |tag| %>
                 <span class="tagnames"><%= link_to tag.tagname, tag_path(tag) %></span>
               <% end %>

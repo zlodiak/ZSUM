@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :title %>
+      <%= f.label t(:title) %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_field :title %>
@@ -16,7 +16,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-2">
-      <%= f.label :body %>
+      <%= f.label t(:body) %>
     </div>
     <div class="col-xs-12 col-sm-10">
       <%= f.text_area :body %>
@@ -33,10 +33,10 @@
     </div>
   </div>  
 
-  <% if @tags.count > 0 %>
+  <% if @tags && @tags.count > 0 %>
     <div class="row">
       <div class="col-xs-12 col-sm-2">
-        <label class="lbl_tagname"><%= t :delete_tags %></label>
+        <label class="lbl_tagname"><%= t :delete_tags %>: </label>
       </div>
       <div class="col-xs-12 col-sm-10">
         <div class="row">
@@ -53,7 +53,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <%= f.submit %>
+      <%= f.submit t(:update) %>
     </div>
   </div>
 <% end %>
