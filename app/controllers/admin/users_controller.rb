@@ -7,9 +7,9 @@ class Admin::UsersController < ApplicationController
 
   def index
     quantity = params[:fld_quantity] || 10
-    order = params[:fld_order] || 'Ascending'
+    order = params[:fld_order] || t('ascending')
 
-    if params[:fld_order] == 'Descending'
+    if params[:fld_order] == t('descending')
       @users = ::User.paginate(page: params[:page], :per_page => quantity).order(name: :DESC)
     else
       @users = ::User.paginate(page: params[:page], :per_page => quantity).order(name: :ASC)
