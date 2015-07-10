@@ -17,5 +17,5 @@
 /tmp
 
 /config/database.yml
-
+/lib/tasks/data.rake
 #
