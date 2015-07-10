@@ -16,6 +16,10 @@
 !/log/.keep
 /tmp
 
+<<<<<<< HEAD
 /config/database.yml
 /lib/tasks/data.rake
 #
+=======
+/db/config/database.yml
+>>>>>>> d45ba3a060c88ccb7e9d47c22cbc0485d177eafa
