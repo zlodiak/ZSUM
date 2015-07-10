@@ -113,3 +113,5 @@ en:
   signin_successfull: 'Signin successfull'
   signin_failed: 'Signin failed'
   sign_out_successfull: 'Sign out successfull'
+  no_diaries: 'Нет дневников'
+  no_posts: 'Нет записей'  

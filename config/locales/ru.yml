@@ -113,3 +113,5 @@ ru:
   signin_successfull: 'Вы успешно вошли в систему'
   signin_failed: 'Ошибка входа в систему'  
   sign_out_successfull: 'Вы вышли из системы'  
+  no_diaries: 'Нет дневников'
+  no_posts: 'Нет записей'
