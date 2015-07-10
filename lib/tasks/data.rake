@@ -54,7 +54,7 @@ namespace :data do
       phone = Faker::PhoneNumber.cell_phone
       skype = Faker::Internet.slug
       info = Faker::Lorem.paragraph(7)
-      password = "qwerty"
+      password = "qwerty_medved"
       User.create!(   
                       name: name,
                       email: email,
